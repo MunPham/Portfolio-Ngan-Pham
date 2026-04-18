@@ -351,7 +351,7 @@ function Home() {
                 {[
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", rotation: 15, yOffset: 15 },
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Social Media Design", rotation: -8, yOffset: -25 },
-                  { src: "https://i.postimg.cc/MGtpsSg2/THA-NG-1.webp", title: "Merchandise", rotation: 6, yOffset: 45 },
+                  { src: encodeURI("/LỊCH VISA 2026/1.webp"), title: "Merchandise", rotation: 6, yOffset: 45 },
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", rotation: -12, yOffset: 5 },
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Brand Identity", rotation: 18, yOffset: 25 }
                 ].map((p, i) => (

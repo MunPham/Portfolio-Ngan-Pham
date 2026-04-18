@@ -9,18 +9,18 @@ import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
 const monthImages = [
-  "https://i.postimg.cc/MGtpsSg2/THA-NG-1.webp",
-  "https://i.postimg.cc/PqK56j0G/THA-NG-2.webp",
-  "https://i.postimg.cc/zfpGdr6s/THA-NG-3.webp",
-  "https://i.postimg.cc/s2KgnrbC/THA-NG-4.webp",
-  "https://i.postimg.cc/k5wgjmLC/THA-NG-5.webp",
-  "https://i.postimg.cc/jjvS8bBs/THA-NG-6.webp",
-  "https://i.postimg.cc/R0GZPB2C/THA-NG-7.webp",
-  "https://i.postimg.cc/Zqj5fSXK/THA-NG-8.webp",
-  "https://i.postimg.cc/k5wgjmL5/THA-NG-9.webp",
-  "https://i.postimg.cc/VN4k7826/THA-NG-10.webp",
-  "https://i.postimg.cc/nLThdJNr/THA-NG-11.webp",
-  "https://i.postimg.cc/YS8CXHTj/THA-NG-12.webp"
+  encodeURI("/LỊCH VISA 2026/1.webp"),
+  encodeURI("/LỊCH VISA 2026/2.webp"),
+  encodeURI("/LỊCH VISA 2026/3.webp"),
+  encodeURI("/LỊCH VISA 2026/4.webp"),
+  encodeURI("/LỊCH VISA 2026/5.webp"),
+  encodeURI("/LỊCH VISA 2026/6.webp"),
+  encodeURI("/LỊCH VISA 2026/7.webp"),
+  encodeURI("/LỊCH VISA 2026/8.webp"),
+  encodeURI("/LỊCH VISA 2026/9.webp"),
+  encodeURI("/LỊCH VISA 2026/10.webp"),
+  encodeURI("/LỊCH VISA 2026/11.webp"),
+  encodeURI("/LỊCH VISA 2026/12.webp")
 ];
 
 const projects = [
@@ -206,7 +206,7 @@ const PresentationSection = ({ project }: { project: any }) => {
       </div>
 
       {/* Scrolling Right Content */}
-      <div className="w-full md:w-8/12 flex flex-col relative z-10 px-6 md:px-12 pb-32 pt-[40vh] md:pt-[25vh] md:pb-[25vh]">
+      <div className="w-full md:w-8/12 flex flex-col gap-12 md:gap-24 relative z-10 px-6 md:px-12 pb-32 pt-[40vh] md:pt-[25vh] md:pb-[25vh]">
         {slides.map((slide, idx) => (
           <div key={idx} className=" w-full flex items-center justify-center">
             <motion.div
