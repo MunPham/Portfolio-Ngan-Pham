@@ -211,7 +211,7 @@ function Home() {
                 <button 
                   onClick={() => scrollToSection(tab.toLowerCase())}
                   className={`text-[12px] uppercase tracking-[0.4em] transition-all cursor-pointer relative py-2 hover-hologram ${activeTab === tab ? "text-foreground font-bold" : "text-white/40 hover:text-white"}`}
-                  style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}
+                  style={{ fontFamily: "'RobotoMono', monospace" }}
                 >
                   {tab}
                   {activeTab === tab && (
