@@ -2,11 +2,11 @@ import React, { useMemo, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 
 const baseImages = [
-  "/Generated Image April 08, 2026 - 3_32AM.png",
-  "/Generated Image April 08, 2026 - 3_33AM.png",
-  "/Generated Image April 08, 2026 - 3_34AM.png",
-  "/Generated Image April 08, 2026 - 3_38AM.png",
-  "/Screenshot 2026-04-08 at 00.32.16.png",
+  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
+  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
+  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
+  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
+  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
 ];
 
 // Giảm bớt số lượng hình (còn 10 hình)

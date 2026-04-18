@@ -8,23 +8,38 @@ import { Footer } from "./components/Footer";
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
+const monthImages = [
+  "https://i.postimg.cc/MGtpsSg2/THA-NG-1.webp",
+  "https://i.postimg.cc/PqK56j0G/THA-NG-2.webp",
+  "https://i.postimg.cc/zfpGdr6s/THA-NG-3.webp",
+  "https://i.postimg.cc/s2KgnrbC/THA-NG-4.webp",
+  "https://i.postimg.cc/k5wgjmLC/THA-NG-5.webp",
+  "https://i.postimg.cc/jjvS8bBs/THA-NG-6.webp",
+  "https://i.postimg.cc/R0GZPB2C/THA-NG-7.webp",
+  "https://i.postimg.cc/Zqj5fSXK/THA-NG-8.webp",
+  "https://i.postimg.cc/k5wgjmL5/THA-NG-9.webp",
+  "https://i.postimg.cc/VN4k7826/THA-NG-10.webp",
+  "https://i.postimg.cc/nLThdJNr/THA-NG-11.webp",
+  "https://i.postimg.cc/YS8CXHTj/THA-NG-12.webp"
+];
+
 const projects = [
-  { id: 0, src: "/Generated Image April 08, 2026 - 3_32AM.png", title: "Key Visuals", category: "Art Direction", year: "2024" },
-  { id: 1, src: "/Generated Image April 08, 2026 - 3_33AM.png", title: "Social Media Design", category: "Visual Strategy", year: "2024" },
-  { id: 2, src: "/Generated Image April 08, 2026 - 3_38AM.png", title: "Presentation Design", category: "Creative Direction", year: "2024" },
-  { id: 3, src: "/LỊCH VISA 2026/THÁNG 1.webp", title: "Merchandise", category: "Art Direction", year: "2023" },
-  { id: 4, src: "/Generated Image April 08, 2026 - 3_34AM.png", title: "Brand Identity", category: "Digital Curation", year: "2023" }
+  { id: 0, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", category: "Art Direction", year: "2024" },
+  { id: 1, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Social Media Design", category: "Visual Strategy", year: "2024" },
+  { id: 2, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", category: "Creative Direction", year: "2024" },
+  { id: 3, src: monthImages[0], title: "Merchandise", category: "Art Direction", year: "2023" },
+  { id: 4, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Brand Identity", category: "Digital Curation", year: "2023" }
 ];
 
 const socialBrands = [
-  { name: "Pönnie", year: "2023", logoUrl: "", artUrl: "/Generated Image April 08, 2026 - 3_33AM.png", isAI: true },
-  { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: "/Generated Image April 08, 2026 - 3_34AM.png", isAI: false },
-  { name: "Visa", year: "2022", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "/Generated Image April 08, 2026 - 3_38AM.png", isAI: false },
-  { name: "Tiger", year: "2022", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "/Generated Image April 08, 2026 - 3_32AM.png", isAI: true },
-  { name: "Ôliv", year: "2021", logoUrl: "", artUrl: "/Generated Image April 08, 2026 - 3_33AM.png", isAI: false },
-  { name: "7UP", year: "2021", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "/Generated Image April 08, 2026 - 3_34AM.png", isAI: true },
-  { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: "/Generated Image April 08, 2026 - 3_38AM.png", isAI: false },
-  { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "/Generated Image April 08, 2026 - 3_32AM.png", isAI: false },
+  { name: "Pönnie", year: "2023", logoUrl: "", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
+  { name: "Visa", year: "2022", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
+  { name: "Tiger", year: "2022", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "Ôliv", year: "2021", logoUrl: "", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
+  { name: "7UP", year: "2021", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
+  { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
 ];
 
 const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: () => void }) => {
@@ -32,13 +47,13 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
 
   const images = [
     brand.artUrl, 
-    "/Generated Image April 08, 2026 - 3_38AM.png", 
-    "/Generated Image April 08, 2026 - 3_34AM.png", 
-    "/Generated Image April 08, 2026 - 3_32AM.png", 
-    "/Generated Image April 08, 2026 - 3_33AM.png",
-    "/Generated Image April 08, 2026 - 3_38AM.png",
+    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
+    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
     brand.artUrl,
-    "/Generated Image April 08, 2026 - 3_32AM.png"
+    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png"
   ];
   
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -52,7 +67,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
       const deltaTime = time - prevTime;
       prevTime = time;
 
-      if (!isHovered && scrollRef.current) {
+      if (!isHovered && scrollRef.current && scrollRef.current.dataset.isDragging !== 'true') {
         // Adjust speed here (e.g. 0.05px per ms) -> 3px per frame (60fps) approx 60*0.05 = 3px. Wait 0.05 * 16 ~ 0.8px/frame
         scrollRef.current.scrollLeft += deltaTime * 0.1;
       }
@@ -99,11 +114,36 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
       >
         <div 
           ref={scrollRef}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={(e) => { setIsHovered(true); e.currentTarget.dataset.isHovering = 'true'; }}
+          onMouseLeave={(e) => { setIsHovered(false); e.currentTarget.dataset.isHovering = 'false'; }}
           onTouchStart={() => setIsHovered(true)}
           onTouchEnd={() => setIsHovered(false)}
-          className="w-full h-full overflow-x-auto overflow-y-hidden flex items-center gap-6 px-6 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          onMouseDown={(e) => {
+            const slider = e.currentTarget;
+            slider.dataset.isDragging = 'true';
+            let isDown = true;
+            let startX = e.pageX - slider.offsetLeft;
+            let scrollLeft = slider.scrollLeft;
+
+            const onMouseMove = (e: MouseEvent) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - startX) * 2;
+              slider.scrollLeft = scrollLeft - walk;
+            };
+
+            const onMouseUp = () => {
+              isDown = false;
+              slider.dataset.isDragging = 'false';
+              window.removeEventListener('mousemove', onMouseMove);
+              window.removeEventListener('mouseup', onMouseUp);
+            };
+
+            window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('mouseup', onMouseUp);
+          }}
+          className="w-full h-full overflow-x-auto overflow-y-hidden flex items-center gap-6 px-6 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing"
         >
           {/* Base set of images */}
           {images.map((src, i) => (
@@ -344,14 +384,10 @@ const ProjectDetail = () => {
               >
                 {[...Array(24)].map((_, idx) => {
                   const dataIdx = idx % 12;
-                  const src = `/LỊCH VISA 2026/THÁNG ${dataIdx + 1}.webp`;
+                  const src = monthImages[dataIdx];
                   return (
                     <div key={idx} className="shrink-0 relative group">
-                      <motion.div
-                        initial={{ filter: "brightness(0.6) grayscale(0.5)" }}
-                        whileInView={{ filter: "brightness(1) grayscale(0)" }}
-                        viewport={{ amount: 0.5, margin: "-20% 0px -20% 0px" }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
+                      <div
                         className="h-[60vh] md:h-[75vh] w-auto aspect-[1772/2481] overflow-hidden relative border border-white/5 shadow-2xl bg-[#0a0a0a]"
                       >
                         <img 
@@ -362,7 +398,7 @@ const ProjectDetail = () => {
                             e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1772' height='2481' viewBox='0 0 1772 2481'%3E%3Crect width='1772' height='2481' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='64' fill='%23666'%3E THÁNG ${dataIdx + 1} MISSING %3C/text%3E%3C/svg%3E`;
                           }}
                         />
-                      </motion.div>
+                      </div>
                     </div>
                   );
                 })}
@@ -379,10 +415,10 @@ const ProjectDetail = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {[...Array(4)].map((_, idx) => {
                 const srcs = [
-                  "/Generated Image April 08, 2026 - 3_34AM.png", 
-                  "/Generated Image April 08, 2026 - 3_38AM.png",
-                  "/Generated Image April 08, 2026 - 3_32AM.png", 
-                  "/Generated Image April 08, 2026 - 3_33AM.png", 
+                  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+                  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
+                  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+                  "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
                 ];
                 return (
                   <div key={`other-${idx}`} className="w-full aspect-square overflow-hidden relative group rounded-md shadow-lg border border-white/5">
@@ -394,7 +430,7 @@ const ProjectDetail = () => {
           </section>
         </div>
       ) : projectIndex === 2 ? (
-        <section className="relative w-full flex flex-col md:flex-row items-start">
+        <section className="relative w-full flex flex-col md:flex-row items-start snap-start">
           {/* Sticky Left Content */}
           <div className="w-full md:w-4/12 md:sticky top-0 h-[40vh] md:h-screen flex flex-col justify-end md:justify-center pb-8 md:pb-0 px-6 md:px-12 z-20 shrink-0 bg-gradient-to-t from-[#0a0a0a] to-transparent md:bg-transparent pointer-events-none">
             <div className="pointer-events-auto w-full max-w-sm mt-auto md:mt-0 md:-translate-y-12">
@@ -415,9 +451,9 @@ const ProjectDetail = () => {
             {[...Array(8)].map((_, idx) => {
               const srcs = [
                 project.src, 
-                "/Generated Image April 08, 2026 - 3_33AM.png", 
-                "/Generated Image April 08, 2026 - 3_34AM.png", 
-                "/Generated Image April 08, 2026 - 3_38AM.png"
+                "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+                "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+                "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png"
               ];
               const src = srcs[idx % srcs.length];
               return (
@@ -441,7 +477,7 @@ const ProjectDetail = () => {
           </div>
         </section>
       ) : projectIndex === 1 ? (
-        <section className="relative w-full flex flex-col items-start min-h-screen pt-32 shrink-0 overflow-hidden">
+        <section className="relative w-full flex flex-col items-start min-h-[100dvh] pt-32 shrink-0 overflow-hidden snap-start">
           {/* Intro */}
           <div className="w-full px-6 md:px-12 mb-16 md:mb-24 flex flex-col z-20 relative">
             <div className="max-w-2xl">
@@ -514,7 +550,7 @@ const ProjectDetail = () => {
         </section>
       ) : (
         /* Content Section (Default & Social Media) */
-        <section className="px-6 md:px-12 py-32 grid grid-cols-1 md:grid-cols-12 gap-12 min-h-screen shrink-0 items-center">
+        <section className="px-6 md:px-12 py-32 grid grid-cols-1 md:grid-cols-12 gap-12 min-h-[100dvh] shrink-0 items-center snap-start">
           <div className="md:col-span-4 space-y-12">
             <div>
               <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">Year</p>
