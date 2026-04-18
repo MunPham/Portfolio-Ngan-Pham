@@ -36,7 +36,7 @@ const socialBrands = [
   { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "Visa", year: "2022", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "Tiger", year: "2022", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
-  { name: "Ôliv", year: "2021", logoUrl: "", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
+  { name: "Ôliv", year: "2021", logoUrl: "", artUrl: "/Ôliv/oliv 1.webp", isAI: false },
   { name: "7UP", year: "2021", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
   { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
@@ -159,27 +159,18 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
           {images.map((src, i) => (
             <div key={`c1-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
               <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#e4ff40]">
-                {brand.year} • {brand.name}
-              </div>
             </div>
           ))}
           {/* Duplicate set of images so it doesn't run out too fast */}
           {images.map((src, i) => (
             <div key={`c2-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
               <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#e4ff40]">
-                {brand.year} • {brand.name}
-              </div>
             </div>
           ))}
           {/* Third duplicate set of images */}
           {images.map((src, i) => (
             <div key={`c3-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
               <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#e4ff40]">
-                {brand.year} • {brand.name}
-              </div>
             </div>
           ))}
         </div>
@@ -530,7 +521,7 @@ const ProjectDetail = () => {
                   <div className="absolute top-0 bottom-0 w-[200vw] right-0 bg-[#1a1a1a] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
 
                   {/* Artwork attached to row (Pops up to the left) */}
-                  <div className="absolute right-full mr-8 md:mr-24 top-1/2 -translate-y-1/2 w-[200px] md:w-[240px] aspect-[4/5] rounded border border-white/5 overflow-hidden opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-30 hidden md:block shadow-2xl">
+                  <div className="absolute right-full mr-8 md:mr-24 top-1/2 -translate-y-1/2 w-[200px] md:w-[240px] aspect-square rounded border border-white/5 overflow-hidden opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-30 hidden md:block shadow-2xl">
                     <img src={brand.artUrl} alt={`${brand.name} Artwork`} className="w-full h-full object-cover" />
                   </div>
                   
