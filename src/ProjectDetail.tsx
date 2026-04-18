@@ -1,34 +1,188 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { motion } from "motion/react";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence, useInView, useScroll, useTransform } from "motion/react";
+import { ArrowLeft, ArrowUpRight, ChevronDown, ArrowDown, X } from "lucide-react";
+import { FooterFountain } from "./components/FooterFountain";
+import { Footer } from "./components/Footer";
+
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 
 const projects = [
-  { id: 0, src: "/Generated Image April 08, 2026 - 3_32AM.png", title: "Ethereal Light", category: "Art Direction", year: "2024" },
-  { id: 1, src: "/Generated Image April 08, 2026 - 3_33AM.png", title: "Urban Solitude", category: "Visual Strategy", year: "2024" },
-  { id: 2, src: "/Generated Image April 08, 2026 - 3_38AM.png", title: "Midnight Bloom", category: "Creative Direction", year: "2024" },
-  { id: 3, src: "/Generated Image April 08, 2026 - 3_32AM.png", title: "Golden Hour", category: "Art Direction", year: "2023" },
-  { id: 4, src: "/Generated Image April 08, 2026 - 3_34AM.png", title: "Silent Echoes", category: "Digital Curation", year: "2023" }
+  { id: 0, src: "/Generated Image April 08, 2026 - 3_32AM.png", title: "Key Visuals", category: "Art Direction", year: "2024" },
+  { id: 1, src: "/Generated Image April 08, 2026 - 3_33AM.png", title: "Social Media Design", category: "Visual Strategy", year: "2024" },
+  { id: 2, src: "/Generated Image April 08, 2026 - 3_38AM.png", title: "Presentation Design", category: "Creative Direction", year: "2024" },
+  { id: 3, src: "/LỊCH VISA 2026/THÁNG 1.webp", title: "Merchandise", category: "Art Direction", year: "2023" },
+  { id: 4, src: "/Generated Image April 08, 2026 - 3_34AM.png", title: "Brand Identity", category: "Digital Curation", year: "2023" }
 ];
+
+const socialBrands = [
+  { name: "Pönnie", year: "2023", logoUrl: "", artUrl: "/Generated Image April 08, 2026 - 3_33AM.png", isAI: true },
+  { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: "/Generated Image April 08, 2026 - 3_34AM.png", isAI: false },
+  { name: "Visa", year: "2022", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "/Generated Image April 08, 2026 - 3_38AM.png", isAI: false },
+  { name: "Tiger", year: "2022", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "/Generated Image April 08, 2026 - 3_32AM.png", isAI: true },
+  { name: "Ôliv", year: "2021", logoUrl: "", artUrl: "/Generated Image April 08, 2026 - 3_33AM.png", isAI: false },
+  { name: "7UP", year: "2021", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "/Generated Image April 08, 2026 - 3_34AM.png", isAI: true },
+  { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: "/Generated Image April 08, 2026 - 3_38AM.png", isAI: false },
+  { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "/Generated Image April 08, 2026 - 3_32AM.png", isAI: false },
+];
+
+const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: () => void }) => {
+  const brand = socialBrands[brandIndex];
+
+  const images = [
+    brand.artUrl, 
+    "/Generated Image April 08, 2026 - 3_38AM.png", 
+    "/Generated Image April 08, 2026 - 3_34AM.png", 
+    "/Generated Image April 08, 2026 - 3_32AM.png", 
+    "/Generated Image April 08, 2026 - 3_33AM.png",
+    "/Generated Image April 08, 2026 - 3_38AM.png",
+    brand.artUrl,
+    "/Generated Image April 08, 2026 - 3_32AM.png"
+  ];
+  
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    let prevTime = performance.now();
+
+    const scrollStep = (time: number) => {
+      const deltaTime = time - prevTime;
+      prevTime = time;
+
+      if (!isHovered && scrollRef.current) {
+        // Adjust speed here (e.g. 0.05px per ms) -> 3px per frame (60fps) approx 60*0.05 = 3px. Wait 0.05 * 16 ~ 0.8px/frame
+        scrollRef.current.scrollLeft += deltaTime * 0.1;
+      }
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+
+    animationFrameId = requestAnimationFrame(scrollStep);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isHovered]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 z-[100] flex flex-col justify-end p-0 md:px-12 md:pt-24 cursor-pointer bg-black/90 backdrop-blur-md"
+    >
+      {/* Fixed Top Header within Modal */}
+      <div className="absolute top-0 left-0 right-0 h-24 md:h-24 flex items-center justify-between px-6 md:px-12 pointer-events-none z-[110]">
+        {/* Left: Info */}
+        <div className="flex items-center gap-3 text-[12px] uppercase tracking-[0.2em] text-white/70" style={{ fontFamily: "'RobotoMono', monospace" }}>
+          <span>{brand.name}</span>
+          <span className="text-white/30">/</span>
+          <span>{brand.year}</span>
+        </div>
+        
+        {/* Right: Close Button */}
+        <button 
+          onClick={onClose}
+          className="pointer-events-auto flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40] text-white/70 group"
+        >
+          <X size={14} className="group-hover:rotate-90 transition-transform duration-300" /> CLOSE
+        </button>
+      </div>
+
+      <motion.div
+        initial={{ y: "100%" }}
+        animate={{ y: 0 }}
+        exit={{ y: "100%" }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-7xl mx-auto h-[90vh] md:h-[85vh] bg-[#0a0a0a] rounded-t-3xl overflow-hidden shadow-2xl border-t border-l border-r border-white/10 cursor-default flex items-center justify-center p-0 md:p-8"
+      >
+        <div 
+          ref={scrollRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
+          className="w-full h-full overflow-x-auto overflow-y-hidden flex items-center gap-6 px-6 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        >
+          {/* Base set of images */}
+          {images.map((src, i) => (
+            <div key={`c1-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
+              <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#e4ff40]">
+                {brand.year} • {brand.name}
+              </div>
+            </div>
+          ))}
+          {/* Duplicate set of images so it doesn't run out too fast */}
+          {images.map((src, i) => (
+            <div key={`c2-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
+              <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#e4ff40]">
+                {brand.year} • {brand.name}
+              </div>
+            </div>
+          ))}
+          {/* Third duplicate set of images */}
+          {images.map((src, i) => (
+            <div key={`c3-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
+              <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.3em] text-[#e4ff40]">
+                {brand.year} • {brand.name}
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const projectIndex = parseInt(id || "0");
   const project = projects[projectIndex] || projects[0];
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [hoveredBrandIndex, setHoveredBrandIndex] = useState<number | null>(null);
+  const [selectedBrandIndex, setSelectedBrandIndex] = useState<number | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (containerRef.current) {
+      containerRef.current.scrollTo(0, 0);
+    }
   }, [id]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedBrandIndex(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-white/20">
+    <div ref={containerRef} className="h-[100dvh] w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory bg-[#0a0a0a] text-white selection:bg-white/20">
       {/* Navigation Bar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/10 backdrop-blur-md border-b border-white/5">
         <nav className="relative mx-auto flex max-w-[1800px] items-center justify-between px-6 py-6 md:px-12">
           <div 
-            className="text-2xl tracking-tight text-white z-50 cursor-pointer"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
+            className="text-2xl tracking-tight text-white z-50 cursor-pointer hover-hologram"
+            style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}
             onClick={() => navigate("/")}
           >
             Ngan Pham<sup className="text-[10px]">®</sup>
@@ -37,19 +191,53 @@ const ProjectDetail = () => {
           <div className="flex items-center gap-8">
             <button 
               onClick={() => navigate("/")}
-              className="flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] hover:opacity-60 transition-opacity"
+              className="flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40]"
             >
               <ArrowLeft size={14} /> Back
             </button>
-            <div className="hidden md:block text-[10px] uppercase tracking-[0.4em] opacity-40">
-              Project {projectIndex + 1} / {projects.length}
+            <div className="relative hidden md:block" ref={dropdownRef}>
+              <div 
+                className="flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] opacity-70 cursor-pointer hover:opacity-100 hover:text-[#e4ff40] transition-colors"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                Project {projectIndex + 1} / {projects.length}
+                <ChevronDown size={14} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+              </div>
+              
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute right-0 top-full mt-4 w-64 bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden py-2 z-50 flex flex-col shadow-2xl"
+                  >
+                    {projects.map((p, idx) => (
+                      <button
+                        key={p.id}
+                        onClick={() => {
+                          setIsDropdownOpen(false);
+                          navigate(`/project/${idx}`);
+                        }}
+                        className={`text-left px-5 py-4 text-[10px] uppercase tracking-[0.2em] transition-colors ${
+                          idx === projectIndex 
+                            ? 'bg-white/20 text-[#e4ff40]' 
+                            : 'text-white/70 hover:bg-white/10 hover:text-white'
+                        }`}
+                      >
+                        {idx + 1}. {p.title}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-[90vh] w-full overflow-hidden">
+      <section className="relative h-screen w-full overflow-hidden shrink-0 snap-start">
         <motion.img 
           initial={{ scale: 1.1, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -69,7 +257,7 @@ const ProjectDetail = () => {
             <span className="text-[10px] tracking-[0.6em] uppercase text-white/40 mb-4 block">{project.category}</span>
             <h1 
               className="text-7xl md:text-[12vw] font-medium tracking-tighter leading-[0.85] mb-8"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
+              style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}
             >
               {project.title}
             </h1>
@@ -77,82 +265,352 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="px-6 md:px-12 py-24 grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4 space-y-12">
-          <div>
-            <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">Year</p>
-            <p className="text-xl">{project.year}</p>
-          </div>
-          <div>
-            <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">Role</p>
-            <p className="text-xl">Lead Designer & Art Director</p>
-          </div>
-          <div>
-            <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">Client</p>
-            <p className="text-xl">Experimental Lab</p>
-          </div>
-        </div>
-
-        <div className="md:col-span-8">
-          <p className="text-lg md:text-xl leading-relaxed tracking-tight text-white/80 font-light">
-            An exploration into the intersection of light, shadow, and digital emotion. 
-            This project sought to redefine how we perceive cinematic storytelling 
-            within a static digital medium. By leveraging advanced AI-driven 
-            visualization tools, we created a series of immersive environments 
-            that challenge the boundaries of traditional art direction.
-          </p>
-          
-          <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="aspect-[4/5] bg-white/5 overflow-hidden">
-              <img src={project.src} alt="Detail 1" className="w-full h-full object-cover transition-opacity duration-700" />
+      {projectIndex === 3 ? (
+        <div className="flex flex-col w-full">
+          {/* Section 1: Intro Text - snapped */}
+          <section className="relative w-full min-h-[60vh] shrink-0 snap-start flex flex-col justify-end pb-12 pt-[15vh] px-6 md:px-12">
+            <div className="w-full md:w-5/12">
+              <h3 className="text-xl md:text-3xl font-light mb-2 text-white/90">Our work</h3>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white/60 mb-6" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>
+                {project.title}
+              </h2>
+              <p className="text-sm md:text-base text-white/60 leading-relaxed font-light mb-8 max-w-sm">
+                A curation of premium branded merchandise featuring an exclusive 12-month calendar series with distinct graphic treatments, and additional conceptual branding pieces exploring AI-generated patterns.
+              </p>
+              <div className="flex items-center gap-4 mt-4">
+                <div className="text-xs tracking-[0.2em] uppercase font-mono text-[#e4ff40] border border-[#e4ff40]/30 px-5 py-3 rounded-full bg-[#e4ff40]/5">
+                  Calendar design generated using AI
+                </div>
+              </div>
             </div>
-            <div className="aspect-[4/5] bg-white/5 overflow-hidden mt-12 md:mt-24">
-              <img src={project.src} alt="Detail 2" className="w-full h-full object-cover transition-opacity duration-700" />
+          </section>
+
+          {/* Section 2: Horizontal Slider - snapped */}
+          <section className="relative w-full min-h-screen shrink-0 snap-center flex flex-col justify-center overflow-hidden">
+            <div className="w-full relative z-10">
+              <div 
+                className="flex overflow-x-auto no-scrollbar flex-nowrap gap-6 md:gap-12 w-full py-8 items-center cursor-grab active:cursor-grabbing px-6 md:px-12 relative"
+                ref={(node) => {
+                  if (!node) return;
+                  
+                  const step = () => {
+                    if (node.dataset.isHovering !== 'true' && node.dataset.isDragging !== 'true' && node.children.length >= 24) {
+                      node.scrollLeft += 1.5;
+                      
+                      const firstItem = node.children[0] as HTMLElement;
+                      const resetItem = node.children[12] as HTMLElement;
+                      if (firstItem && resetItem) {
+                        const resetDistance = resetItem.offsetLeft - firstItem.offsetLeft;
+                        if (node.scrollLeft >= resetDistance) {
+                          node.scrollLeft -= resetDistance;
+                        }
+                      }
+                    }
+                    requestAnimationFrame(step);
+                  };
+                  
+                  if (!node.dataset.scrolling) {
+                    node.dataset.scrolling = "true";
+                    requestAnimationFrame(step);
+                  }
+                }}
+                onMouseEnter={(e) => { e.currentTarget.dataset.isHovering = 'true'; }}
+                onMouseLeave={(e) => { e.currentTarget.dataset.isHovering = 'false'; }}
+                onMouseDown={(e) => {
+                  const slider = e.currentTarget;
+                  slider.dataset.isDragging = 'true';
+                  let isDown = true;
+                  let startX = e.pageX - slider.offsetLeft;
+                  let scrollLeft = slider.scrollLeft;
+
+                  const onMouseMove = (e: MouseEvent) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - slider.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    slider.scrollLeft = scrollLeft - walk;
+                  };
+
+                  const onMouseUp = () => {
+                    isDown = false;
+                    slider.dataset.isDragging = 'false';
+                    window.removeEventListener('mousemove', onMouseMove);
+                    window.removeEventListener('mouseup', onMouseUp);
+                  };
+
+                  window.addEventListener('mousemove', onMouseMove);
+                  window.addEventListener('mouseup', onMouseUp);
+                }}
+              >
+                {[...Array(24)].map((_, idx) => {
+                  const dataIdx = idx % 12;
+                  const src = `/LỊCH VISA 2026/THÁNG ${dataIdx + 1}.webp`;
+                  return (
+                    <div key={idx} className="shrink-0 relative group">
+                      <motion.div
+                        initial={{ filter: "brightness(0.6) grayscale(0.5)" }}
+                        whileInView={{ filter: "brightness(1) grayscale(0)" }}
+                        viewport={{ amount: 0.5, margin: "-20% 0px -20% 0px" }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        className="h-[60vh] md:h-[75vh] w-auto aspect-[1772/2481] overflow-hidden relative border border-white/5 shadow-2xl bg-[#0a0a0a]"
+                      >
+                        <img 
+                          src={src} 
+                          alt={`Merch ${dataIdx + 1}`} 
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          onError={(e) => {
+                            e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1772' height='2481' viewBox='0 0 1772 2481'%3E%3Crect width='1772' height='2481' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='64' fill='%23666'%3E THÁNG ${dataIdx + 1} MISSING %3C/text%3E%3C/svg%3E`;
+                          }}
+                        />
+                      </motion.div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* Section 3: Other Merch - snapped */}
+          <section id="other-merch" className="min-h-screen w-full flex flex-col justify-center shrink-0 snap-start px-6 md:px-12 py-16 bg-[#0a0a0a]">
+            <div className="mb-16">
+              <span className="text-[#e4ff40] text-[10px] tracking-[0.4em] uppercase font-mono mb-4 block">Archive</span>
+              <h3 className="text-3xl text-white font-medium" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>Additional Merchandise</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+              {[...Array(4)].map((_, idx) => {
+                const srcs = [
+                  "/Generated Image April 08, 2026 - 3_34AM.png", 
+                  "/Generated Image April 08, 2026 - 3_38AM.png",
+                  "/Generated Image April 08, 2026 - 3_32AM.png", 
+                  "/Generated Image April 08, 2026 - 3_33AM.png", 
+                ];
+                return (
+                  <div key={`other-${idx}`} className="w-full aspect-square overflow-hidden relative group rounded-md shadow-lg border border-white/5">
+                    <img src={srcs[idx]} className="absolute inset-0 w-full h-full object-cover filter brightness-[0.6] group-hover:brightness-100 group-hover:scale-105 transition-all duration-700" alt="Other Merch Item" />
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      ) : projectIndex === 2 ? (
+        <section className="relative w-full flex flex-col md:flex-row items-start">
+          {/* Sticky Left Content */}
+          <div className="w-full md:w-4/12 md:sticky top-0 h-[40vh] md:h-screen flex flex-col justify-end md:justify-center pb-8 md:pb-0 px-6 md:px-12 z-20 shrink-0 bg-gradient-to-t from-[#0a0a0a] to-transparent md:bg-transparent pointer-events-none">
+            <div className="pointer-events-auto w-full max-w-sm mt-auto md:mt-0 md:-translate-y-12">
+              <h3 className="text-xl md:text-3xl font-light mb-2 text-white/90">Our work</h3>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white/60 mb-8 md:mb-12" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>
+                {project.title}
+              </h2>
+              <p className="text-sm md:text-base text-white/60 leading-relaxed font-light">
+                Elevating corporate storytelling through meticulously crafted presentation design. 
+                We transformed complex data and strategic messaging into a compelling visual narrative, 
+                utilizing a seamless 16:9 layout format designed for maximum audience engagement.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Next Project Footer */}
-      <section className="px-6 md:px-12 py-48 border-t border-white/5 flex flex-col items-center justify-center text-center">
-        <span className="text-[10px] tracking-[0.6em] uppercase text-white/40 mb-8 block">Next Project</span>
-        <div 
-          onClick={() => navigate(`/project/${(projectIndex + 1) % projects.length}`)}
-          className="group relative cursor-pointer"
-        >
-          <h2 
-            className="text-5xl md:text-9xl font-medium tracking-tighter leading-none group-hover:opacity-40 transition-opacity"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
+          {/* Scrolling Right Content */}
+          <div className="w-full md:w-8/12 flex flex-col relative z-10 px-6 md:px-12 pb-32 pt-[40vh] md:pt-[25vh] md:pb-[25vh]">
+            {[...Array(8)].map((_, idx) => {
+              const srcs = [
+                project.src, 
+                "/Generated Image April 08, 2026 - 3_33AM.png", 
+                "/Generated Image April 08, 2026 - 3_34AM.png", 
+                "/Generated Image April 08, 2026 - 3_38AM.png"
+              ];
+              const src = srcs[idx % srcs.length];
+              return (
+                <div key={idx} className=" w-full flex items-center justify-center">
+                  <motion.div
+                    initial={{ filter: "brightness(0.2) grayscale(0.2)" }}
+                    whileInView={{ filter: "brightness(1) grayscale(0)" }}
+                    viewport={{ amount: 0.5, margin: "-20% 0px -20% 0px" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="w-full aspect-video mx-auto overflow-hidden relative shrink-0 group"
+                  >
+                    <img 
+                      src={src} 
+                      alt={`Presentation Slide ${idx + 1}`} 
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    />
+                  </motion.div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      ) : projectIndex === 1 ? (
+        <section className="relative w-full flex flex-col items-start min-h-screen pt-32 shrink-0 overflow-hidden">
+          {/* Intro */}
+          <div className="w-full px-6 md:px-12 mb-16 md:mb-24 flex flex-col z-20 relative">
+            <div className="max-w-2xl">
+              <h3 className="text-xl md:text-3xl font-light mb-2 text-white/90">Our work</h3>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-6" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>
+                {project.title}
+              </h2>
+              <p className="text-sm md:text-base text-white/60 leading-relaxed font-light">
+                A collection of social media campaigns and visual content designed for top-tier brands.
+                <br/><br/>
+                <span className="flex items-center gap-2 text-xs md:text-sm text-white/40">
+                  <span className="px-2 py-0.5 border border-white/20 rounded text-[10px] uppercase font-mono tracking-widest text-[#e4ff40]">AI Tag</span> 
+                  indicates artwork generated with the assistance of Artificial Intelligence.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {/* Brand List & Artwork */}
+          <div className="w-full flex-grow flex justify-end relative">
+            
+            {/* Right: Brand List */}
+            <div className="w-full md:w-7/12 flex flex-col pb-32 relative z-20">
+              {/* Vertical line connecting the list */}
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-white/5 hidden md:block" />
+              
+              {/* Table Headers */}
+              <div className="flex items-center justify-between py-6 px-6 md:px-12 border-b border-white/20">
+                <span className="text-[12px] tracking-[0.2em] text-white/40 uppercase" style={{ fontFamily: "'RobotoMono', monospace" }}>Clients</span>
+                <span className="text-[12px] tracking-[0.2em] text-white/40 uppercase" style={{ fontFamily: "'RobotoMono', monospace" }}>Year</span>
+              </div>
+
+              {socialBrands.map((brand, idx) => (
+                <div 
+                  key={idx}
+                  onClick={() => setSelectedBrandIndex(idx)}
+                  className="group relative w-full flex items-center justify-between py-4 px-6 md:px-12 border-b border-white/5 cursor-pointer transition-colors duration-300 hover:z-50"
+                >
+                  {/* Highlight Bar spanning to the left */}
+                  <div className="absolute top-0 bottom-0 w-[200vw] right-0 bg-[#1a1a1a] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+
+                  {/* Artwork attached to row (Pops up to the left) */}
+                  <div className="absolute right-full mr-8 md:mr-24 top-1/2 -translate-y-1/2 w-[200px] md:w-[240px] aspect-[4/5] rounded border border-white/5 overflow-hidden opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-30 hidden md:block shadow-2xl">
+                    <img src={brand.artUrl} alt={`${brand.name} Artwork`} className="w-full h-full object-cover" />
+                  </div>
+                  
+                  <div className="flex items-center gap-6 relative z-10 w-full justify-between pointer-events-none">
+                    <span className="text-lg md:text-xl tracking-wide text-white/50 group-hover:text-[#e4ff40] transition-colors duration-300 flex items-center gap-3" style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}>
+                      {brand.name}
+                      <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" />
+                    </span>
+                    <span className="text-sm md:text-base text-white/40 group-hover:text-[#e4ff40] transition-colors duration-300" style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}>
+                      {brand.year}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Expanded Artwork Modal */}
+          <AnimatePresence>
+            {selectedBrandIndex !== null && (
+              <ExpandedModal 
+                brandIndex={selectedBrandIndex} 
+                onClose={() => setSelectedBrandIndex(null)} 
+              />
+            )}
+          </AnimatePresence>
+        </section>
+      ) : (
+        /* Content Section (Default & Social Media) */
+        <section className="px-6 md:px-12 py-32 grid grid-cols-1 md:grid-cols-12 gap-12 min-h-screen shrink-0 items-center">
+          <div className="md:col-span-4 space-y-12">
+            <div>
+              <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">Year</p>
+              <p className="text-xl">{project.year}</p>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">Role</p>
+              <p className="text-xl">Lead Designer & Art Director</p>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-4">Client</p>
+              <p className="text-xl">Experimental Lab</p>
+            </div>
+          </div>
+
+          <div className="md:col-span-8">
+            {projectIndex === 1 ? (
+              <div className="space-y-16 md:space-y-24">
+                <div>
+                  <p className="text-lg md:text-xl leading-relaxed tracking-tight text-white/80 font-light mb-6">
+                    A curation of high-impact social media campaigns and visual strategies designed for industry-leading brands.
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="px-2 py-1 bg-white text-black text-[10px] font-bold tracking-widest uppercase">AI</span>
+                    <p className="text-[12px] md:text-sm text-white/40 tracking-widest uppercase font-mono">
+                      = Images generated using artificial intelligence.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                  {[
+                    { name: "Visa", year: "2023" },
+                    { name: "Ponnie", year: "2024" },
+                    { name: "7UP", year: "2023" },
+                    { name: "Samsung", year: "2024" },
+                    { name: "Tiger", year: "2022" },
+                    { name: "Tiki", year: "2023" },
+                    { name: "ACB", year: "2024" },
+                    { name: "HDBank", year: "2023" }
+                  ].map((brand, idx) => (
+                    <div key={idx} className="aspect-square bg-white border border-white/10 text-black p-4 flex flex-col items-center justify-center relative group hover:bg-[#e4ff40] hover:text-black hover:border-[#e4ff40] transition-colors duration-500">
+                      <span className="text-xl md:text-2xl font-black tracking-tighter uppercase group-hover:scale-110 transition-transform duration-500">
+                        {brand.name}
+                      </span>
+                      <span className="absolute bottom-3 right-3 text-[10px] font-mono font-bold opacity-30">
+                        {brand.year}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <>
+                <p className="text-lg md:text-xl leading-relaxed tracking-tight text-white/80 font-light">
+                  An exploration into the intersection of light, shadow, and digital emotion. 
+                  This project sought to redefine how we perceive cinematic storytelling 
+                  within a static digital medium. By leveraging advanced AI-driven 
+                  visualization tools, we created a series of immersive environments 
+                  that challenge the boundaries of traditional art direction.
+                </p>
+                
+                <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="aspect-[4/5] bg-white/5 overflow-hidden">
+                    <img src={project.src} alt="Detail 1" className="w-full h-full object-cover transition-opacity duration-700" />
+                  </div>
+                  <div className="aspect-[4/5] bg-white/5 overflow-hidden mt-12 md:mt-24">
+                    <img src={project.src} alt="Detail 2" className="w-full h-full object-cover transition-opacity duration-700" />
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* End Layout */}
+      <section className="shrink-0 snap-start w-full flex flex-col pt-32 bg-[#0a0a0a] relative min-h-[100dvh] border-t border-white/5">
+        <div className="relative z-10 px-6 md:px-12 flex-1 flex flex-col justify-center items-center text-center pb-24">
+          <span className="text-[10px] tracking-[0.6em] uppercase text-white/40 mb-8 block">Next Project</span>
+          <div 
+            onClick={() => navigate(`/project/${(projectIndex + 1) % projects.length}`)}
+            className="group relative cursor-pointer"
           >
-            {projects[(projectIndex + 1) % projects.length].title}
-          </h2>
-          <ArrowUpRight className="absolute -top-12 -right-12 w-12 h-12 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0" />
+            <h2 
+              className="text-5xl md:text-9xl font-medium tracking-tighter leading-none transition-opacity hover-hologram"
+              style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}
+            >
+              {projects[(projectIndex + 1) % projects.length].title}
+            </h2>
+            <ArrowUpRight className="absolute -top-12 -right-12 w-12 h-12 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0" />
+          </div>
         </div>
-      </section>
 
-      {/* Section: Contact (Footer) */}
-      <section className="py-32 px-6 md:px-12 bg-black relative overflow-hidden border-t border-white/10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div>
-            <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-6">Socials</p>
-            <div className="flex flex-col gap-4">
-              <a href="https://www.instagram.com/mun.1210/" target="_blank" rel="noopener noreferrer" className="text-sm tracking-widest hover:text-white/60 transition-colors">Instagram</a>
-              <a href="https://www.behance.net/mun1210" target="_blank" rel="noopener noreferrer" className="text-sm tracking-widest hover:text-white/60 transition-colors">Behance</a>
-              <a href="https://www.linkedin.com/in/mun1210/" target="_blank" rel="noopener noreferrer" className="text-sm tracking-widest hover:text-white/60 transition-colors">LinkedIn</a>
-            </div>
-          </div>
-          <div>
-            <p className="text-[10px] tracking-[0.4em] uppercase text-white/40 mb-6">Inquiries</p>
-            <div className="flex flex-col gap-2">
-              <a href="mailto:ptngan163@gmail.com" className="text-sm tracking-widest hover:text-white/60 transition-colors">ptngan163@gmail.com</a>
-              <p className="text-sm tracking-widest text-white/60">0903889145</p>
-            </div>
-          </div>
-          <div className="flex flex-col justify-end items-start md:items-end">
-            <p className="text-[10px] tracking-[0.4em] uppercase text-white/20">© 2026 Ngan Pham</p>
-            <p className="text-[10px] tracking-[0.4em] uppercase text-white/20 mt-2">All rights reserved</p>
-          </div>
+        <div className="">
+          <Footer />
         </div>
       </section>
     </div>

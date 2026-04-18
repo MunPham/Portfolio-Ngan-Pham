@@ -1,9 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'HalenoirExpanded';
+  src: url('/Font/HalenoirExpanded-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HalenoirCompactText';
+  src: url('/Font/HalenoirCompactText-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/Font/Roboto-Mono-300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-serif: "Instrument Serif", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-serif: "HalenoirExpanded", "Playfair Display", serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@layer utilities {
+  .hover-hologram {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-hologram:hover {
+    color: #e4ff40 !important;
+  }
+
+  .hologram-bg {
+    background-color: #e4ff40 !important;
+  }
 }
 
 @layer utilities {
