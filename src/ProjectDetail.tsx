@@ -45,16 +45,26 @@ const socialBrands = [
 const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: () => void }) => {
   const brand = socialBrands[brandIndex];
 
-  const images = [
-    brand.artUrl, 
-    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
-    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
-    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
-    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
-    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
-    brand.artUrl,
-    "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png"
-  ];
+  const images = brand.name === "Ôliv"
+    ? [
+        "/Ôliv/oliv 1.webp",
+        "/Ôliv/oliv 2.webp",
+        "/Ôliv/oliv 3.webp",
+        "/Ôliv/oliv 4.webp",
+        "/Ôliv/oliv 5.webp",
+        "/Ôliv/oliv 6.webp",
+        "/Ôliv/oliv 7.webp"
+      ]
+    : [
+        brand.artUrl, 
+        "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+        "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+        "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
+        "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
+        "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png",
+        brand.artUrl,
+        "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png"
+      ];
   
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
