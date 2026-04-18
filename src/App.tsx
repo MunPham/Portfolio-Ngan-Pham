@@ -349,11 +349,11 @@ function Home() {
             <div className="flex w-full justify-center items-center overflow-visible relative">
               <div className="flex -space-x-8 md:-space-x-12 px-6 md:px-12 items-center justify-center translate-x-4 md:translate-x-6">
                 {[
-                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", rotation: -6, yOffset: 20 },
-                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Social Media Design", rotation: 8, yOffset: -30 },
-                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", rotation: -4, yOffset: 40 },
-                  { src: "https://i.postimg.cc/MGtpsSg2/THA-NG-1.webp", title: "Merchandise", rotation: 10, yOffset: -10 },
-                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Brand Identity", rotation: -8, yOffset: 10 }
+                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", rotation: 15, yOffset: 15 },
+                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Social Media Design", rotation: -8, yOffset: -25 },
+                  { src: "https://i.postimg.cc/MGtpsSg2/THA-NG-1.webp", title: "Merchandise", rotation: 6, yOffset: 45 },
+                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", rotation: -12, yOffset: 5 },
+                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Brand Identity", rotation: 18, yOffset: 25 }
                 ].map((p, i) => (
                   <ProjectBox key={i} index={i} src={p.src} title={p.title} rotation={p.rotation} yOffset={p.yOffset} onHover={setIsHoveringProject} />
                 ))}

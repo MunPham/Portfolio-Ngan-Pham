@@ -26,8 +26,8 @@ const monthImages = [
 const projects = [
   { id: 0, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", category: "Art Direction", year: "2024" },
   { id: 1, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Social Media Design", category: "Visual Strategy", year: "2024" },
-  { id: 2, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", category: "Creative Direction", year: "2024" },
-  { id: 3, src: monthImages[0], title: "Merchandise", category: "Art Direction", year: "2023" },
+  { id: 2, src: monthImages[0], title: "Merchandise", category: "Art Direction", year: "2023" },
+  { id: 3, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", category: "Creative Direction", year: "2024" },
   { id: 4, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Brand Identity", category: "Digital Curation", year: "2023" }
 ];
 
@@ -179,6 +179,57 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
   );
 };
 
+const PresentationSection = ({ project }: { project: any }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const slides = [
+    { brand: "7UP", title: "7UP Presentation", description: "Elevating corporate storytelling through meticulously crafted presentation design. We transformed strategic messaging into a compelling visual narrative that feels as refreshing as the brand itself.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" },
+    { brand: "7UP", title: "7UP Presentation", description: "Elevating corporate storytelling through meticulously crafted presentation design. We transformed strategic messaging into a compelling visual narrative that feels as refreshing as the brand itself.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" },
+    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" },
+    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" },
+    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" }
+  ];
+
+  return (
+    <section className="relative w-full flex flex-col md:flex-row items-start snap-start">
+      {/* Sticky Left Content */}
+      <div className="w-full md:w-4/12 md:sticky top-0 h-[40vh] md:h-screen flex flex-col justify-end md:justify-center pb-8 md:pb-0 px-6 md:px-12 z-20 shrink-0 bg-gradient-to-t from-[#0a0a0a] to-transparent md:bg-transparent pointer-events-none">
+        <div className="pointer-events-auto w-full max-w-sm mt-auto md:mt-0 md:-translate-y-12">
+          <h3 className="text-xl md:text-3xl font-light mb-2 text-white/90">{slides[activeIndex].brand}</h3>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white/60 mb-8 md:mb-12" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>
+            {slides[activeIndex].title}
+          </h2>
+          <p className="text-sm md:text-base text-white/60 leading-relaxed font-light transition-opacity duration-300">
+            {slides[activeIndex].description}
+          </p>
+        </div>
+      </div>
+
+      {/* Scrolling Right Content */}
+      <div className="w-full md:w-8/12 flex flex-col relative z-10 px-6 md:px-12 pb-32 pt-[40vh] md:pt-[25vh] md:pb-[25vh]">
+        {slides.map((slide, idx) => (
+          <div key={idx} className=" w-full flex items-center justify-center">
+            <motion.div
+              onViewportEnter={() => setActiveIndex(idx)}
+              viewport={{ amount: 0.5, margin: "-40% 0px -40% 0px" }}
+              initial={{ filter: "brightness(0.2) grayscale(0.2)" }}
+              whileInView={{ filter: "brightness(1) grayscale(0)" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="w-full aspect-video mx-auto overflow-hidden relative shrink-0 group"
+            >
+              <img 
+                src={slide.src} 
+                alt={`${slide.brand} Slide ${idx + 1}`} 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </motion.div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -306,7 +357,7 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {projectIndex === 3 ? (
+      {projectIndex === 2 ? (
         <div className="flex flex-col w-full">
           {/* Section 1: Intro Text - snapped */}
           <section className="relative w-full min-h-[60vh] shrink-0 snap-start flex flex-col justify-end pb-12 pt-[15vh] px-6 md:px-12">
@@ -430,53 +481,8 @@ const ProjectDetail = () => {
             </div>
           </section>
         </div>
-      ) : projectIndex === 2 ? (
-        <section className="relative w-full flex flex-col md:flex-row items-start snap-start">
-          {/* Sticky Left Content */}
-          <div className="w-full md:w-4/12 md:sticky top-0 h-[40vh] md:h-screen flex flex-col justify-end md:justify-center pb-8 md:pb-0 px-6 md:px-12 z-20 shrink-0 bg-gradient-to-t from-[#0a0a0a] to-transparent md:bg-transparent pointer-events-none">
-            <div className="pointer-events-auto w-full max-w-sm mt-auto md:mt-0 md:-translate-y-12">
-              <h3 className="text-xl md:text-3xl font-light mb-2 text-white/90">Our work</h3>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white/60 mb-8 md:mb-12" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>
-                {project.title}
-              </h2>
-              <p className="text-sm md:text-base text-white/60 leading-relaxed font-light">
-                Elevating corporate storytelling through meticulously crafted presentation design. 
-                We transformed complex data and strategic messaging into a compelling visual narrative, 
-                utilizing a seamless 16:9 layout format designed for maximum audience engagement.
-              </p>
-            </div>
-          </div>
-
-          {/* Scrolling Right Content */}
-          <div className="w-full md:w-8/12 flex flex-col relative z-10 px-6 md:px-12 pb-32 pt-[40vh] md:pt-[25vh] md:pb-[25vh]">
-            {[...Array(8)].map((_, idx) => {
-              const srcs = [
-                project.src, 
-                "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
-                "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
-                "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png"
-              ];
-              const src = srcs[idx % srcs.length];
-              return (
-                <div key={idx} className=" w-full flex items-center justify-center">
-                  <motion.div
-                    initial={{ filter: "brightness(0.2) grayscale(0.2)" }}
-                    whileInView={{ filter: "brightness(1) grayscale(0)" }}
-                    viewport={{ amount: 0.5, margin: "-20% 0px -20% 0px" }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="w-full aspect-video mx-auto overflow-hidden relative shrink-0 group"
-                  >
-                    <img 
-                      src={src} 
-                      alt={`Presentation Slide ${idx + 1}`} 
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    />
-                  </motion.div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+      ) : projectIndex === 3 ? (
+        <PresentationSection project={project} />
       ) : projectIndex === 1 ? (
         <section className="relative w-full flex flex-col items-start min-h-[100dvh] pt-32 shrink-0 overflow-hidden snap-start">
           {/* Intro */}
