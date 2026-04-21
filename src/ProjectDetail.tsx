@@ -21,6 +21,12 @@ import tháng10 from '../SOURCE/LỊCH VISA 2026/THÁNG 10.webp';
 import tháng11 from '../SOURCE/LỊCH VISA 2026/THÁNG 11.webp';
 import tháng12 from '../SOURCE/LỊCH VISA 2026/THÁNG 12.webp';
 
+import up1 from '../SOURCE/7 UP/7up deck 1.webp';
+import up2 from '../SOURCE/7 UP/7up deck 2.webp';
+import visa1 from '../SOURCE/VISA/GG PAY 1.webp';
+import visa2 from '../SOURCE/VISA/GG PAY 2.webp';
+import visa3 from '../SOURCE/VISA/GG PAY 3.webp';
+
 const monthImages = [
   tháng1,
   tháng2,
@@ -196,11 +202,11 @@ const PresentationSection = ({ project }: { project: any }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slides = [
-    { brand: "7UP", title: "7UP Presentation", description: "Elevating corporate storytelling through meticulously crafted presentation design. We transformed strategic messaging into a compelling visual narrative that feels as refreshing as the brand itself.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" },
-    { brand: "7UP", title: "7UP Presentation", description: "Elevating corporate storytelling through meticulously crafted presentation design. We transformed strategic messaging into a compelling visual narrative that feels as refreshing as the brand itself.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" },
-    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" },
-    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" },
-    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" }
+    { brand: "7UP", title: "7UP Presentation", description: "Elevating corporate storytelling through meticulously crafted presentation design. We transformed strategic messaging into a compelling visual narrative that feels as refreshing as the brand itself.", src: up1 },
+    { brand: "7UP", title: "7UP Presentation", description: "Elevating corporate storytelling through meticulously crafted presentation design. We transformed strategic messaging into a compelling visual narrative that feels as refreshing as the brand itself.", src: up2 },
+    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: visa1 },
+    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: visa2 },
+    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: visa3 }
   ];
 
   return (
@@ -219,7 +225,7 @@ const PresentationSection = ({ project }: { project: any }) => {
       </div>
 
       {/* Scrolling Right Content */}
-      <div className="w-full md:w-8/12 flex flex-col gap-12 md:gap-24 relative z-10 px-6 md:px-12 pb-32 pt-[40vh] md:pt-[25vh] md:pb-[25vh]">
+      <div className="w-full md:w-8/12 flex flex-col gap-0 md:gap-0 relative z-10 px-6 md:px-12 pb-32 pt-[40vh] md:pt-[25vh] md:pb-[25vh]">
         {slides.map((slide, idx) => (
           <div key={idx} className=" w-full flex items-center justify-center">
             <motion.div
