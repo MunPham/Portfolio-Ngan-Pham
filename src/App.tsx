@@ -11,6 +11,8 @@ import ProjectDetail from "./ProjectDetail";
 import { FooterFountain } from "./components/FooterFountain";
 import { Footer } from "./components/Footer";
 
+import month1 from '../SOURCE/LỊCH VISA 2026/THÁNG 1.webp';
+
 const ProjectBox = ({ src, title, rotation, yOffset, index, onHover }: { src: string, title: string, rotation: number, yOffset: number, index: number, onHover: (hovering: boolean) => void, key?: React.Key }) => {
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -351,7 +353,7 @@ function Home() {
                 {[
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", rotation: 15, yOffset: 15 },
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Social Media Design", rotation: -8, yOffset: -25 },
-                  { src: encodeURI("/LỊCH VISA 2026/1.webp"), title: "Merchandise", rotation: 6, yOffset: 45 },
+                  { src: month1, title: "Merchandise", rotation: 6, yOffset: 45 },
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", rotation: -12, yOffset: 5 },
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Brand Identity", rotation: 18, yOffset: 25 }
                 ].map((p, i) => (

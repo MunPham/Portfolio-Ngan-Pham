@@ -3,21 +3,21 @@
 
 @font-face {
   font-family: 'HalenoirExpanded';
-  src: url('/Font/HalenoirExpanded-Bold.otf') format('opentype');
+  src: url('../SOURCE/Font/HalenoirExpanded-Bold.otf') format('opentype');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'HalenoirCompactText';
-  src: url('/Font/HalenoirCompactText-Regular.otf') format('opentype');
+  src: url('../SOURCE/Font/HalenoirCompactText-Regular.otf') format('opentype');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'RobotoMono';
-  src: url('/Font/Roboto-Mono-300.ttf') format('truetype');
+  src: url('../SOURCE/Font/Roboto-Mono-300.ttf') format('truetype');
   font-style: normal;
   font-display: swap;
 }

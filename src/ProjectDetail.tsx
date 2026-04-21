@@ -8,19 +8,32 @@ import { Footer } from "./components/Footer";
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
+import tháng1 from '../SOURCE/LỊCH VISA 2026/THÁNG 1.webp';
+import tháng2 from '../SOURCE/LỊCH VISA 2026/THÁNG 2.webp';
+import tháng3 from '../SOURCE/LỊCH VISA 2026/THÁNG 3.webp';
+import tháng4 from '../SOURCE/LỊCH VISA 2026/THÁNG 4.webp';
+import tháng5 from '../SOURCE/LỊCH VISA 2026/THÁNG 5.webp';
+import tháng6 from '../SOURCE/LỊCH VISA 2026/THÁNG 6.webp';
+import tháng7 from '../SOURCE/LỊCH VISA 2026/THÁNG 7.webp';
+import tháng8 from '../SOURCE/LỊCH VISA 2026/THÁNG 8.webp';
+import tháng9 from '../SOURCE/LỊCH VISA 2026/THÁNG 9.webp';
+import tháng10 from '../SOURCE/LỊCH VISA 2026/THÁNG 10.webp';
+import tháng11 from '../SOURCE/LỊCH VISA 2026/THÁNG 11.webp';
+import tháng12 from '../SOURCE/LỊCH VISA 2026/THÁNG 12.webp';
+
 const monthImages = [
-  encodeURI("/LỊCH VISA 2026/1.webp"),
-  encodeURI("/LỊCH VISA 2026/2.webp"),
-  encodeURI("/LỊCH VISA 2026/3.webp"),
-  encodeURI("/LỊCH VISA 2026/4.webp"),
-  encodeURI("/LỊCH VISA 2026/5.webp"),
-  encodeURI("/LỊCH VISA 2026/6.webp"),
-  encodeURI("/LỊCH VISA 2026/7.webp"),
-  encodeURI("/LỊCH VISA 2026/8.webp"),
-  encodeURI("/LỊCH VISA 2026/9.webp"),
-  encodeURI("/LỊCH VISA 2026/10.webp"),
-  encodeURI("/LỊCH VISA 2026/11.webp"),
-  encodeURI("/LỊCH VISA 2026/12.webp")
+  tháng1,
+  tháng2,
+  tháng3,
+  tháng4,
+  tháng5,
+  tháng6,
+  tháng7,
+  tháng8,
+  tháng9,
+  tháng10,
+  tháng11,
+  tháng12
 ];
 
 const projects = [
