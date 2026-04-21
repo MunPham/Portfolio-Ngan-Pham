@@ -27,6 +27,14 @@ import visa1 from '../SOURCE/VISA/GG PAY 1.webp';
 import visa2 from '../SOURCE/VISA/GG PAY 2.webp';
 import visa3 from '../SOURCE/VISA/GG PAY 3.webp';
 
+import oliv1 from '../SOURCE/Ôliv/oliv 1.webp';
+import oliv2 from '../SOURCE/Ôliv/oliv 2.webp';
+import oliv3 from '../SOURCE/Ôliv/oliv 3.webp';
+import oliv4 from '../SOURCE/Ôliv/oliv 4.webp';
+import oliv5 from '../SOURCE/Ôliv/oliv 5.webp';
+import oliv6 from '../SOURCE/Ôliv/oliv 6.webp';
+import oliv7 from '../SOURCE/Ôliv/oliv 7.webp';
+
 const monthImages = [
   tháng1,
   tháng2,
@@ -55,7 +63,7 @@ const socialBrands = [
   { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "Visa", year: "2022", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "Tiger", year: "2022", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
-  { name: "Ôliv", year: "2021", logoUrl: "", artUrl: "/Ôliv/oliv 1.webp", isAI: false },
+  { name: "Ôliv", year: "2021", logoUrl: "", artUrl: oliv1, isAI: false },
   { name: "7UP", year: "2021", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
   { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
@@ -66,13 +74,13 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
 
   const images = brand.name === "Ôliv"
     ? [
-        "/Ôliv/oliv 1.webp",
-        "/Ôliv/oliv 2.webp",
-        "/Ôliv/oliv 3.webp",
-        "/Ôliv/oliv 4.webp",
-        "/Ôliv/oliv 5.webp",
-        "/Ôliv/oliv 6.webp",
-        "/Ôliv/oliv 7.webp"
+        oliv1,
+        oliv2,
+        oliv3,
+        oliv4,
+        oliv5,
+        oliv6,
+        oliv7
       ]
     : [
         brand.artUrl, 
