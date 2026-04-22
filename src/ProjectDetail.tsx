@@ -35,6 +35,18 @@ import oliv5 from '../SOURCE/Ôliv/oliv 5.webp';
 import oliv6 from '../SOURCE/Ôliv/oliv 6.webp';
 import oliv7 from '../SOURCE/Ôliv/oliv 7.webp';
 
+import ssAc1 from '../SOURCE/SAMSUNG/SS AC/Thang 11 - 3.webp';
+import ssAc2 from '../SOURCE/SAMSUNG/SS AC/Thang 12 - 2.webp';
+import ssAc3 from '../SOURCE/SAMSUNG/SS AC/Thang 12 - 3.webp';
+import ssAc4 from '../SOURCE/SAMSUNG/SS AC/Thang 12 - 4 copy.webp';
+import ssAc5 from '../SOURCE/SAMSUNG/SS AC/Thang 5 - 2.webp';
+import ssAc6 from '../SOURCE/SAMSUNG/SS AC/Thang 7 - 1.webp';
+import ssAc7 from '../SOURCE/SAMSUNG/SS AC/Thang 7 - 2.webp';
+import ssAc8 from '../SOURCE/SAMSUNG/SS AC/Thang 7 - 3.webp';
+import ssAc9 from '../SOURCE/SAMSUNG/SS AC/Thang 7 - 4.webp';
+import ssAc10 from '../SOURCE/SAMSUNG/SS AC/Thang 9.webp';
+import ssAc11 from '../SOURCE/SAMSUNG/SS AC/Tháng 11 - 2.webp';
+
 const monthImages = [
   tháng1,
   tháng2,
@@ -69,6 +81,75 @@ const socialBrands = [
   { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
 ];
 
+const HorizontalScrollRow = ({ images }: { images: string[] }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    let prevTime = performance.now();
+
+    const scrollStep = (time: number) => {
+      const deltaTime = time - prevTime;
+      prevTime = time;
+
+      if (!isHovered && scrollRef.current && scrollRef.current.dataset.isDragging !== 'true') {
+        scrollRef.current.scrollLeft += deltaTime * 0.1;
+      }
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+
+    animationFrameId = requestAnimationFrame(scrollStep);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isHovered]);
+
+  return (
+    <div 
+      ref={scrollRef}
+      onMouseEnter={(e) => { setIsHovered(true); e.currentTarget.dataset.isHovering = 'true'; }}
+      onMouseLeave={(e) => { setIsHovered(false); e.currentTarget.dataset.isHovering = 'false'; }}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
+      onMouseDown={(e) => {
+        const slider = e.currentTarget;
+        slider.dataset.isDragging = 'true';
+        let isDown = true;
+        let startX = e.pageX - slider.offsetLeft;
+        let scrollLeft = slider.scrollLeft;
+
+        const onMouseMove = (e: MouseEvent) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slider.offsetLeft;
+          const walk = (x - startX) * 2;
+          slider.scrollLeft = scrollLeft - walk;
+        };
+
+        const onMouseUp = () => {
+          isDown = false;
+          slider.dataset.isDragging = 'false';
+          window.removeEventListener('mousemove', onMouseMove);
+          window.removeEventListener('mouseup', onMouseUp);
+        };
+
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+      }}
+      className="w-full shrink-0 overflow-x-auto overflow-y-hidden flex items-center gap-6 px-6 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing pb-8"
+    >
+      {[...Array(3)].map((_, groupIdx) => (
+        <React.Fragment key={groupIdx}>
+          {images.map((src, i) => (
+            <div key={`c${groupIdx}-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
+              <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+            </div>
+          ))}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+};
+
 const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: () => void }) => {
   const brand = socialBrands[brandIndex];
 
@@ -93,27 +174,9 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
         "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png"
       ];
   
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    let animationFrameId: number;
-    let prevTime = performance.now();
-
-    const scrollStep = (time: number) => {
-      const deltaTime = time - prevTime;
-      prevTime = time;
-
-      if (!isHovered && scrollRef.current && scrollRef.current.dataset.isDragging !== 'true') {
-        // Adjust speed here (e.g. 0.05px per ms) -> 3px per frame (60fps) approx 60*0.05 = 3px. Wait 0.05 * 16 ~ 0.8px/frame
-        scrollRef.current.scrollLeft += deltaTime * 0.1;
-      }
-      animationFrameId = requestAnimationFrame(scrollStep);
-    };
-
-    animationFrameId = requestAnimationFrame(scrollStep);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isHovered]);
+  const ssAcImages = [
+    ssAc1, ssAc2, ssAc3, ssAc4, ssAc5, ssAc6, ssAc7, ssAc8, ssAc9, ssAc10, ssAc11
+  ];
 
   return (
     <motion.div
@@ -148,60 +211,33 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
         exit={{ y: "100%" }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-7xl mx-auto h-[90vh] md:h-[85vh] bg-[#0a0a0a] rounded-t-3xl overflow-hidden shadow-2xl border-t border-l border-r border-white/10 cursor-default flex items-center justify-center p-0 md:p-8"
+        className="relative w-full max-w-7xl mx-auto h-[90vh] md:h-[85vh] bg-[#0a0a0a] rounded-t-3xl shadow-2xl border-t border-l border-r border-white/10 cursor-default flex flex-col pt-24 pb-0 overflow-y-auto overflow-x-hidden no-scrollbar"
       >
-        <div 
-          ref={scrollRef}
-          onMouseEnter={(e) => { setIsHovered(true); e.currentTarget.dataset.isHovering = 'true'; }}
-          onMouseLeave={(e) => { setIsHovered(false); e.currentTarget.dataset.isHovering = 'false'; }}
-          onTouchStart={() => setIsHovered(true)}
-          onTouchEnd={() => setIsHovered(false)}
-          onMouseDown={(e) => {
-            const slider = e.currentTarget;
-            slider.dataset.isDragging = 'true';
-            let isDown = true;
-            let startX = e.pageX - slider.offsetLeft;
-            let scrollLeft = slider.scrollLeft;
-
-            const onMouseMove = (e: MouseEvent) => {
-              if (!isDown) return;
-              e.preventDefault();
-              const x = e.pageX - slider.offsetLeft;
-              const walk = (x - startX) * 2;
-              slider.scrollLeft = scrollLeft - walk;
-            };
-
-            const onMouseUp = () => {
-              isDown = false;
-              slider.dataset.isDragging = 'false';
-              window.removeEventListener('mousemove', onMouseMove);
-              window.removeEventListener('mouseup', onMouseUp);
-            };
-
-            window.addEventListener('mousemove', onMouseMove);
-            window.addEventListener('mouseup', onMouseUp);
-          }}
-          className="w-full h-full overflow-x-auto overflow-y-hidden flex items-center gap-6 px-6 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing"
-        >
-          {/* Base set of images */}
-          {images.map((src, i) => (
-            <div key={`c1-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
-              <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+        {brand.name === "Samsung" ? (
+          <div className="flex flex-col w-full pb-24">
+            {/* Samsung AC */}
+            <div className="px-6 md:px-12 mb-4">
+              <h3 className="text-xl md:text-2xl font-light text-white/90">Samsung AC</h3>
             </div>
-          ))}
-          {/* Duplicate set of images so it doesn't run out too fast */}
-          {images.map((src, i) => (
-            <div key={`c2-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
-              <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+            <HorizontalScrollRow images={ssAcImages} />
+            
+            {/* Scroll Down Indicator */}
+            <div className="w-full flex flex-col items-center justify-center my-12 opacity-60">
+              <span className="text-[10px] tracking-[0.2em] uppercase font-mono mb-4 text-[#e4ff40]">Scroll down for more</span>
+              <ArrowDown size={20} className="animate-bounce text-[#e4ff40]" />
             </div>
-          ))}
-          {/* Third duplicate set of images */}
-          {images.map((src, i) => (
-            <div key={`c3-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
-              <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+
+            {/* Samsung TV */}
+            <div className="px-6 md:px-12 mb-4 mt-8">
+              <h3 className="text-xl md:text-2xl font-light text-white/90">Samsung TV</h3>
             </div>
-          ))}
-        </div>
+            <HorizontalScrollRow images={ssAcImages} />
+          </div>
+        ) : (
+          <div className="flex-1 flex flex-col justify-center min-h-0">
+             <HorizontalScrollRow images={images} />
+          </div>
+        )}
       </motion.div>
     </motion.div>
   );
