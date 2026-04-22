@@ -234,7 +234,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
           {brand.name === "Samsung" ? (
             <div className="flex flex-col w-full relative">
               {/* Section 1: Samsung AC */}
-              <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-start snap-start relative pt-6 md:pt-10">
+              <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-start snap-start relative pt-1 md:pt-4">
                 <div className="px-6 md:px-12 pb-6 shrink-0 flex items-center justify-between w-full">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>1 / Samsung AC</h3>
                   
@@ -257,7 +257,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
               </div>
 
               {/* Section 2: Samsung TV */}
-              <div ref={tvRef} className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-start snap-start relative pt-6 md:pt-10">
+              <div ref={tvRef} className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-start snap-start relative pt-1 md:pt-4">
                 <div className="px-6 md:px-12 pb-6 shrink-0">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Samsung TV</h3>
                 </div>
@@ -268,7 +268,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
               </div>
             </div>
           ) : (
-            <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] snap-start flex flex-col justify-start pt-16 md:pt-20" >
+            <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] snap-start flex flex-col justify-start pt-8 md:pt-10" >
                <HorizontalScrollRow images={images} />
             </div>
           )}
