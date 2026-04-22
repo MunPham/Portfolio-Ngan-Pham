@@ -332,7 +332,7 @@ const ProjectDetail = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 top-full mt-4 w-64 bg-black/10 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden py-2 z-50 flex flex-col shadow-2xl"
+                    className="absolute right-0 top-full mt-4 w-64 bg-[#0a0a0a] border border-white/10 rounded-xl overflow-hidden py-2 z-50 flex flex-col shadow-2xl"
                   >
                     {projects.map((p, idx) => (
                       <button
