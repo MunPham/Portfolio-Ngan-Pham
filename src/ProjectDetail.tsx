@@ -234,41 +234,41 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
           {brand.name === "Samsung" ? (
             <div className="flex flex-col w-full relative">
               {/* Section 1: Samsung AC */}
-              <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-center snap-start relative py-4">
-                <div className="px-6 md:px-12 pb-4 shrink-0 flex items-center justify-between">
+              <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-start snap-start relative pt-6 md:pt-10">
+                <div className="px-6 md:px-12 pb-6 shrink-0 flex items-center justify-between w-full">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>1 / Samsung AC</h3>
                   
                   {/* Scroll Down Indicator */}
                   <div 
                      onClick={scrollToTV}
-                     className="group flex flex-col items-center cursor-pointer"
+                     className="group flex flex-col items-end cursor-pointer pr-2"
                   >
                     <div className="flex items-center gap-2 text-white group-hover:text-[#e4ff40] transition-colors duration-300">
-                      <span className="text-[12px] tracking-[0.2em] uppercase font-mono">Scroll down for more</span>
+                      <span className="text-[12px] tracking-[0.4em] uppercase font-mono">Scroll down for more</span>
                       <span className="relative flex items-center overflow-hidden w-4 h-4">
                         <ArrowDown className="w-4 h-4 absolute opacity-0 -translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500" />
                       </span>
                     </div>
                   </div>
                 </div>
-                <div className="w-full shrink-0 flex flex-col justify-center">
+                <div className="w-full shrink-0 flex flex-col justify-start">
                    <HorizontalScrollRow images={ssAcImages} loop={false} />
                 </div>
               </div>
 
               {/* Section 2: Samsung TV */}
-              <div ref={tvRef} className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-center snap-start relative py-4">
-                <div className="px-6 md:px-12 pb-4 shrink-0">
+              <div ref={tvRef} className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-start snap-start relative pt-6 md:pt-10">
+                <div className="px-6 md:px-12 pb-6 shrink-0">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Samsung TV</h3>
                 </div>
-                <div className="w-full shrink-0 flex flex-col justify-center">
+                <div className="w-full shrink-0 flex flex-col justify-start">
                    {/* Placeholder images */}
                    <HorizontalScrollRow images={images} loop={false} />
                 </div>
               </div>
             </div>
           ) : (
-            <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] snap-start flex flex-col justify-center py-4" >
+            <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] snap-start flex flex-col justify-start pt-16 md:pt-20" >
                <HorizontalScrollRow images={images} />
             </div>
           )}
