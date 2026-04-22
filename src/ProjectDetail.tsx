@@ -136,6 +136,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
         <button 
           onClick={onClose}
           className="pointer-events-auto flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40] text-white/70 group"
+          style={{ fontFamily: "'RobotoMono', monospace" }}
         >
           <X size={14} className="group-hover:rotate-90 transition-transform duration-300" /> CLOSE
         </button>
@@ -311,6 +312,7 @@ const ProjectDetail = () => {
             <button 
               onClick={() => navigate("/")}
               className="flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40]"
+              style={{ fontFamily: "'RobotoMono', monospace" }}
             >
               <ArrowLeft size={14} /> Back
             </button>
@@ -318,6 +320,7 @@ const ProjectDetail = () => {
               <div 
                 className="flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] opacity-70 cursor-pointer hover:opacity-100 hover:text-[#e4ff40] transition-colors"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                style={{ fontFamily: "'RobotoMono', monospace" }}
               >
                 Project {projectIndex + 1} / {projects.length}
                 <ChevronDown size={14} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
@@ -329,7 +332,7 @@ const ProjectDetail = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 top-full mt-4 w-64 bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden py-2 z-50 flex flex-col shadow-2xl"
+                    className="absolute right-0 top-full mt-4 w-64 bg-black/10 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden py-2 z-50 flex flex-col shadow-2xl"
                   >
                     {projects.map((p, idx) => (
                       <button
@@ -343,6 +346,7 @@ const ProjectDetail = () => {
                             ? 'bg-white/20 text-[#e4ff40]' 
                             : 'text-white/70 hover:bg-white/10 hover:text-white'
                         }`}
+                        style={{ fontFamily: "'RobotoMono', monospace" }}
                       >
                         {idx + 1}. {p.title}
                       </button>
@@ -664,7 +668,7 @@ const ProjectDetail = () => {
       {/* End Layout */}
       <section className="shrink-0 snap-start w-full flex flex-col pt-32 bg-[#0a0a0a] relative min-h-[100dvh] border-t border-white/5">
         <div className="relative z-10 px-6 md:px-12 flex-1 flex flex-col justify-center items-center text-center pb-24">
-          <span className="text-[10px] tracking-[0.6em] uppercase text-white/40 mb-8 block">Next Project</span>
+          <span className="text-[12px] tracking-[0.6em] uppercase text-white/40 mb-8 block" style={{ fontFamily: "'RobotoMono', monospace" }}>Next Project</span>
           <div 
             onClick={() => navigate(`/project/${(projectIndex + 1) % projects.length}`)}
             className="group relative cursor-pointer"

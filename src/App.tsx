@@ -316,7 +316,7 @@ function Home() {
                 </h2>
               </div>
               <div className="flex flex-row items-center justify-start md:justify-end gap-6 md:gap-8">
-                <p className="text-white/40 text-[14px] md:text-[18px] max-w-[200px] md:max-w-xs leading-relaxed tracking-wide text-right">
+                <p className="text-white/40 text-[14px] md:text-[18px] max-w-[200px] md:max-w-xs leading-relaxed tracking-wide text-right" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>
                   Things I Built.<br/>
                   Fueled by coffee.<br/>
                   Driven by passion.
@@ -334,9 +334,9 @@ function Home() {
                   >
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                       <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-                      <text className="text-[7.2px] uppercase tracking-[0.1em] fill-white group-hover:fill-[#e4ff40] transition-all duration-300">
-                        <textPath xlinkHref="#circlePath">
-                          DISCOVER OTHERS PROJECT ON <tspan className="font-bold">BEHANCE</tspan> — DISCOVER OTHERS PROJECT ON <tspan className="font-bold">BEHANCE</tspan> — 
+                      <text className="text-[9px] uppercase tracking-[0.2em] fill-white group-hover:fill-[#e4ff40] transition-all duration-300">
+                        <textPath xlinkHref="#circlePath" startOffset="50%" textAnchor="middle">
+                          DISCOVER OTHERS PROJECT ON <tspan className="font-bold">BEHANCE</tspan>
                         </textPath>
                       </text>
                     </svg>
@@ -385,10 +385,10 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-8 border border-white/5 hover:border-white/20 transition-colors relative overflow-hidden"
+                className="group p-8 border border-white/5 hover:border-white/20 transition-colors relative overflow-hidden flex flex-col"
               >
-                <h3 className="text-[20px] md:text-[25px] font-bold text-white mb-4 tracking-tight uppercase text-balance">{service.title}</h3>
-                <p className="text-white/40 text-[16px] md:text-[19px] leading-relaxed text-pretty">{service.desc}</p>
+                <h3 className="text-[20px] md:text-[25px] font-bold text-white mb-4 tracking-tight uppercase" style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}>{service.title}</h3>
+                <p className="text-white/40 text-[16px] md:text-[19px] leading-relaxed text-pretty text-left" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>{service.desc}</p>
                 <div className="mt-8 h-px w-0 group-hover:w-full bg-white/40 transition-all duration-700" />
               </motion.div>
             ))}
