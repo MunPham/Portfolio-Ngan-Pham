@@ -81,7 +81,7 @@ const socialBrands = [
   { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
 ];
 
-const HorizontalScrollRow = ({ images, heightClass = "h-[50vh] md:h-[65vh]", widthClass = "w-[50vh] md:w-[65vh]" }: { images: string[], heightClass?: string, widthClass?: string }) => {
+const HorizontalScrollRow = ({ images, heightClass = "h-[50vh] md:h-[65vh]", widthClass = "w-[50vh] md:w-[65vh]", loop = true }: { images: string[], heightClass?: string, widthClass?: string, loop?: boolean }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -137,15 +137,23 @@ const HorizontalScrollRow = ({ images, heightClass = "h-[50vh] md:h-[65vh]", wid
       }}
       className="w-full shrink-0 overflow-x-auto overflow-y-hidden flex items-center gap-6 px-6 md:px-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing pb-2"
     >
-      {[...Array(3)].map((_, groupIdx) => (
-        <React.Fragment key={groupIdx}>
-          {images.map((src, i) => (
-            <div key={`c${groupIdx}-${i}`} className={`flex-shrink-0 ${widthClass} ${heightClass} bg-white/5 overflow-hidden group border border-white/10 relative`}>
-              <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
-            </div>
-          ))}
-        </React.Fragment>
-      ))}
+      {loop ? (
+        [...Array(3)].map((_, groupIdx) => (
+          <React.Fragment key={groupIdx}>
+            {images.map((src, i) => (
+              <div key={`c${groupIdx}-${i}`} className={`flex-shrink-0 ${widthClass} ${heightClass} bg-white/5 overflow-hidden group border border-white/10 relative`}>
+                <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+              </div>
+            ))}
+          </React.Fragment>
+        ))
+      ) : (
+        images.map((src, i) => (
+          <div key={`c-${i}`} className={`flex-shrink-0 ${widthClass} ${heightClass} bg-white/5 overflow-hidden group border border-white/10 relative`}>
+            <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+          </div>
+        ))
+      )}
     </div>
   );
 };
@@ -227,15 +235,10 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
             <div className="flex flex-col w-full relative">
               {/* Section 1: Samsung AC */}
               <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-center snap-start relative py-4">
-                <div className="px-6 md:px-12 pb-4 shrink-0">
+                <div className="px-6 md:px-12 pb-4 shrink-0 flex items-center justify-between">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>1 / Samsung AC</h3>
-                </div>
-                <div className="w-full shrink-0 flex flex-col justify-center">
-                   <HorizontalScrollRow images={ssAcImages} />
-                </div>
-                
-                {/* Scroll Down Indicator */}
-                <div className="w-full shrink-0 flex flex-col items-center justify-center pt-3 pb-2">
+                  
+                  {/* Scroll Down Indicator */}
                   <div 
                      onClick={scrollToTV}
                      className="group flex flex-col items-center cursor-pointer"
@@ -248,6 +251,9 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                     </div>
                   </div>
                 </div>
+                <div className="w-full shrink-0 flex flex-col justify-center">
+                   <HorizontalScrollRow images={ssAcImages} loop={false} />
+                </div>
               </div>
 
               {/* Section 2: Samsung TV */}
@@ -257,7 +263,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 </div>
                 <div className="w-full shrink-0 flex flex-col justify-center">
                    {/* Placeholder images */}
-                   <HorizontalScrollRow images={images} />
+                   <HorizontalScrollRow images={images} loop={false} />
                 </div>
               </div>
             </div>
