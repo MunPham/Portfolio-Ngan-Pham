@@ -81,7 +81,7 @@ const socialBrands = [
   { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
 ];
 
-const HorizontalScrollRow = ({ images }: { images: string[] }) => {
+const HorizontalScrollRow = ({ images, heightClass = "h-[50vh] md:h-[65vh]", widthClass = "w-[50vh] md:w-[65vh]" }: { images: string[], heightClass?: string, widthClass?: string }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -140,7 +140,7 @@ const HorizontalScrollRow = ({ images }: { images: string[] }) => {
       {[...Array(3)].map((_, groupIdx) => (
         <React.Fragment key={groupIdx}>
           {images.map((src, i) => (
-            <div key={`c${groupIdx}-${i}`} className="flex-shrink-0 w-[50vh] h-[50vh] md:w-[65vh] md:h-[65vh] bg-white/5 overflow-hidden group border border-white/10 relative">
+            <div key={`c${groupIdx}-${i}`} className={`flex-shrink-0 ${widthClass} ${heightClass} bg-white/5 overflow-hidden group border border-white/10 relative`}>
               <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
             </div>
           ))}
@@ -178,6 +178,14 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
     ssAc1, ssAc2, ssAc3, ssAc4, ssAc5, ssAc6, ssAc7, ssAc8, ssAc9, ssAc10, ssAc11
   ];
 
+  const tvRef = useRef<HTMLDivElement>(null);
+  
+  const scrollToTV = () => {
+    if (tvRef.current) {
+      tvRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -211,30 +219,48 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
         exit={{ y: "100%" }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-7xl mx-auto h-[90vh] md:h-[85vh] bg-[#0a0a0a] rounded-t-3xl shadow-2xl border-t border-l border-r border-white/10 cursor-default flex flex-col pt-24 pb-0 overflow-y-auto overflow-x-hidden no-scrollbar"
+        className="relative w-full max-w-7xl mx-auto h-[90vh] md:h-[85vh] bg-[#0a0a0a] rounded-t-3xl shadow-2xl border-t border-l border-r border-white/10 cursor-default flex flex-col pt-16 md:pt-16 pb-0 overflow-y-auto overflow-x-hidden no-scrollbar snap-y snap-mandatory"
       >
         {brand.name === "Samsung" ? (
-          <div className="flex flex-col w-full pb-24">
-            {/* Samsung AC */}
-            <div className="px-6 md:px-12 mb-4">
-              <h3 className="text-xl md:text-2xl font-light text-white/90">Samsung AC</h3>
-            </div>
-            <HorizontalScrollRow images={ssAcImages} />
-            
-            {/* Scroll Down Indicator */}
-            <div className="w-full flex flex-col items-center justify-center my-12 opacity-60">
-              <span className="text-[10px] tracking-[0.2em] uppercase font-mono mb-4 text-[#e4ff40]">Scroll down for more</span>
-              <ArrowDown size={20} className="animate-bounce text-[#e4ff40]" />
+          <div className="flex flex-col w-full relative">
+            {/* Section 1: Samsung AC */}
+            <div className="w-full shrink-0 min-h-[calc(90vh-4rem)] md:min-h-[calc(85vh-4rem)] flex flex-col justify-center snap-start relative pt-8 md:pt-4">
+              <div className="px-6 md:px-12 pb-4 shrink-0">
+                <h3 className="text-[12px] tracking-[0.2em] text-white uppercase" style={{ fontFamily: "'RobotoMono', monospace" }}>1. Samsung AC</h3>
+              </div>
+              <div className="w-full flex-grow overflow-hidden flex flex-col justify-center">
+                 <HorizontalScrollRow images={ssAcImages} heightClass="h-[45vh] md:h-[50vh]" widthClass="w-[45vh] md:w-[50vh]" />
+              </div>
+              
+              {/* Scroll Down Indicator */}
+              <div className="w-full shrink-0 flex flex-col items-center justify-center pb-8 pt-2">
+                <div 
+                   onClick={scrollToTV}
+                   className="group flex flex-col items-center cursor-pointer"
+                >
+                  <div className="flex items-center gap-2 text-white group-hover:text-[#e4ff40] transition-colors duration-300">
+                    <span className="text-[12px] tracking-[0.2em] uppercase font-mono">Scroll down for more</span>
+                    <span className="relative flex items-center overflow-hidden w-4 h-4">
+                      <ArrowDown className="w-4 h-4 absolute opacity-0 -translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500" />
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Samsung TV */}
-            <div className="px-6 md:px-12 mb-4 mt-8">
-              <h3 className="text-xl md:text-2xl font-light text-white/90">Samsung TV</h3>
+            {/* Section 2: Samsung TV */}
+            <div ref={tvRef} className="w-full shrink-0 min-h-[calc(90vh-4rem)] md:min-h-[calc(85vh-4rem)] flex flex-col justify-center snap-start relative pt-8 md:pt-4">
+              <div className="px-6 md:px-12 pb-4 shrink-0">
+                <h3 className="text-[12px] tracking-[0.2em] text-white uppercase" style={{ fontFamily: "'RobotoMono', monospace" }}>2. Samsung TV</h3>
+              </div>
+              <div className="w-full flex-grow overflow-hidden flex flex-col justify-center">
+                 {/* Placeholder images */}
+                 <HorizontalScrollRow images={images} heightClass="h-[45vh] md:h-[50vh]" widthClass="w-[45vh] md:w-[50vh]" />
+              </div>
             </div>
-            <HorizontalScrollRow images={ssAcImages} />
           </div>
         ) : (
-          <div className="flex-1 flex flex-col justify-center min-h-0">
+          <div className="w-full shrink-0 min-h-[calc(90vh-[80px])] md:min-h-[calc(85vh-[96px])] snap-start flex flex-col justify-center pt-8" >
              <HorizontalScrollRow images={images} />
           </div>
         )}
