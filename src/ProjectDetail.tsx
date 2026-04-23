@@ -35,6 +35,7 @@ import oliv5 from '../SOURCE/Ôliv/oliv 5.webp';
 import oliv6 from '../SOURCE/Ôliv/oliv 6.webp';
 import oliv7 from '../SOURCE/Ôliv/oliv 7.webp';
 
+import ssEuro2 from '../SOURCE/SAMSUNG/SS TV/SS EURO 2.webp';
 import ssAc1 from '../SOURCE/SAMSUNG/SS AC/Thang 11 - 3.webp';
 import ssAc2 from '../SOURCE/SAMSUNG/SS AC/Thang 12 - 2.webp';
 import ssAc3 from '../SOURCE/SAMSUNG/SS AC/Thang 12 - 3.webp';
@@ -72,7 +73,7 @@ const projects = [
 
 const socialBrands = [
   { name: "Pönnie", year: "2023", logoUrl: "", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
-  { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
+  { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: ssEuro2, isAI: false },
   { name: "Visa", year: "2022", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "Tiger", year: "2022", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
   { name: "Ôliv", year: "2021", logoUrl: "", artUrl: oliv1, isAI: false },
