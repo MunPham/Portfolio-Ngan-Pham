@@ -25,7 +25,7 @@ const ProjectBox = ({ src, title, rotation, yOffset, index, onHover }: { src: st
       onHoverStart={() => { setIsHovered(true); onHover(true); }}
       onHoverEnd={() => { setIsHovered(false); onHover(false); }}
       onClick={() => navigate(`/project/${index % 5}`)}
-      className="bg-white/5 overflow-hidden relative group shrink-0 w-[50vw] h-[50vw] md:w-[20vw] md:h-[20vw] cursor-pointer"
+      className="bg-white/5 overflow-hidden relative group shrink-0 w-[65vw] h-[65vw] sm:w-[50vw] sm:h-[50vw] md:w-[20vw] md:h-[20vw] cursor-pointer snap-center md:snap-align-none"
       animate={{ 
         rotate: rotation, 
         y: yOffset, 
@@ -90,6 +90,7 @@ function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHoveringProject, setIsHoveringProject] = useState(false);
+  const [isHoveringHeader, setIsHoveringHeader] = useState(false);
   const [isAudioMuted, setIsAudioMuted] = useState(true);
   const [hasClickedToPlay, setHasClickedToPlay] = useState(false);
   const videoSectionRef = useRef<HTMLElement>(null);
@@ -177,7 +178,7 @@ function Home() {
         transition={{ type: "spring", damping: 30, stiffness: 400, mass: 0.2 }}
         className="fixed top-0 left-0 w-6 h-6 pointer-events-none z-[101] flex items-center justify-center"
       >
-        {activeTab === "About" && !hasClickedToPlay && (
+        {activeTab === "About" && !hasClickedToPlay && !isHoveringHeader && !isMobileMenuOpen && (
           <div className="absolute left-10 top-1/2 -translate-y-1/2 whitespace-nowrap text-[10px] tracking-[0.2em] uppercase text-white font-bold drop-shadow-lg" style={{ textShadow: "0px 2px 10px rgba(0,0,0,0.5)" }}>
             click to turn on music
           </div>
@@ -185,7 +186,11 @@ function Home() {
       </motion.div>
 
       {/* Navigation Bar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/10 backdrop-blur-md border-b border-white/5">
+      <header 
+        className="fixed top-0 left-0 right-0 z-50 bg-black/10 backdrop-blur-md border-b border-white/5"
+        onMouseEnter={() => setIsHoveringHeader(true)}
+        onMouseLeave={() => setIsHoveringHeader(false)}
+      >
         <nav className="relative mx-auto flex max-w-[1800px] items-center justify-between px-6 py-6 md:px-12">
           <div 
             className="text-2xl tracking-tight text-foreground z-50 cursor-pointer hover-hologram"
@@ -294,7 +299,7 @@ function Home() {
         </section>
 
         {/* Section: Works (Horizontal Scroll) */}
-        <section id="projects" className="snap-start snap-always h-screen w-full flex flex-col items-center justify-center bg-[#0a0a0a] relative overflow-hidden pt-8 md:pt-16 pb-8 md:pb-16">
+        <section id="projects" className="snap-start snap-always w-full flex flex-col items-center justify-center bg-[#0a0a0a] min-h-[100dvh] md:h-screen relative overflow-hidden pt-32 md:pt-16 pb-12 md:pb-16">
           <div className="w-full max-w-[1800px] flex flex-col gap-12 md:gap-[80px]">
             <div className="px-6 md:px-12 flex flex-col md:flex-row md:items-end justify-between gap-6 w-full z-10">
               <div className="max-w-2xl">
@@ -303,7 +308,7 @@ function Home() {
                   Design Lab
                 </h2>
               </div>
-              <div className="flex flex-row items-center justify-start md:justify-end gap-6 md:gap-8">
+              <div className="flex flex-row items-center justify-end w-full md:w-auto gap-6 md:gap-8 mt-4 md:mt-0">
                 <p className="text-white/40 text-[14px] md:text-[18px] max-w-[200px] md:max-w-xs leading-relaxed tracking-wide text-right" style={{ fontFamily: "'HalenoirCompactText', sans-serif" }}>
                   Things I Built.<br/>
                   Fueled by coffee.<br/>
@@ -336,8 +341,8 @@ function Home() {
               </div>
             </div>
 
-            <div className="flex w-full justify-center items-center overflow-visible relative">
-              <div className="flex -space-x-8 md:-space-x-12 px-6 md:px-12 items-center justify-center translate-x-4 md:translate-x-6">
+            <div className="flex w-full md:justify-center items-center relative lg:overflow-visible">
+              <div className="flex overflow-x-auto md:overflow-visible w-full snap-x snap-mandatory gap-6 md:gap-0 pl-6 md:pl-12 pr-[40vw] md:pr-12 md:-space-x-12 items-center md:justify-center no-scrollbar translate-x-0 md:translate-x-6 py-24 md:py-0">
                 {[
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", rotation: 15, yOffset: 15 },
                   { src: ssEuro2, title: "Social Media Design", rotation: -8, yOffset: -25 },
@@ -353,8 +358,8 @@ function Home() {
         </section>
 
         {/* Section: Services (Technical Treatment) */}
-        <section id="expertise" className="snap-start snap-always h-screen w-full flex flex-col justify-center bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
-          <div className="px-6 md:px-12 mb-12 mt-20">
+        <section id="expertise" className="snap-start snap-always min-h-[100dvh] md:h-screen w-full flex flex-col justify-center bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden py-32 md:py-0">
+          <div className="px-6 md:px-12 mb-12 md:mt-20">
             <span className="text-[12px] tracking-[0.6em] uppercase text-white/40 mb-4 block" style={{ fontFamily: "'RobotoMono', monospace" }}>03 / Expertise</span>
             <h2 className="text-6xl md:text-8xl font-medium tracking-tighter text-white leading-none" style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}>
               Creative & Design
