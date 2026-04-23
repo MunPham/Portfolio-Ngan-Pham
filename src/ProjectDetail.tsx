@@ -53,6 +53,9 @@ import ssAc8 from '../SOURCE/SAMSUNG/SS AC/Thang 7 - 3.webp';
 import ssAc9 from '../SOURCE/SAMSUNG/SS AC/Thang 7 - 4.webp';
 import ssAc10 from '../SOURCE/SAMSUNG/SS AC/Thang 9.webp';
 import ssAc11 from '../SOURCE/SAMSUNG/SS AC/Tháng 11 - 2.webp';
+import ssTheFrame1 from '../SOURCE/SAMSUNG/SS The Frame/DECK SS THE FRAME 1.webp';
+import ssTheFrame2 from '../SOURCE/SAMSUNG/SS The Frame/DECK SS THE FRAME 2.webp';
+import ssTheFrame3 from '../SOURCE/SAMSUNG/SS The Frame/DECK SS THE FRAME 3.webp';
 
 const monthImages = [
   tháng1,
@@ -297,7 +300,10 @@ const PresentationSection = ({ project }: { project: any }) => {
     { brand: "7UP", title: "7UP Presentation", description: "Elevating corporate storytelling through meticulously crafted presentation design. We transformed strategic messaging into a compelling visual narrative that feels as refreshing as the brand itself.", src: up2 },
     { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: visa1 },
     { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: visa2 },
-    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: visa3 }
+    { brand: "Visa", title: "Visa Network", description: "Utilizing a seamless 16:9 layout format designed for maximum audience engagement. Complex data was distilled into clear, impactful slides to communicate global scale and connectivity.", src: visa3 },
+    { brand: "Samsung", title: "Samsung The Frame", description: "Highlighting the fusion of art and technology with The Frame. We developed a visual language that seamlessly integrates modern displays into diverse living spaces.", src: ssTheFrame1 },
+    { brand: "Samsung", title: "Samsung The Frame", description: "Highlighting the fusion of art and technology with The Frame. We developed a visual language that seamlessly integrates modern displays into diverse living spaces.", src: ssTheFrame2 },
+    { brand: "Samsung", title: "Samsung The Frame", description: "Highlighting the fusion of art and technology with The Frame. We developed a visual language that seamlessly integrates modern displays into diverse living spaces.", src: ssTheFrame3 }
   ];
 
   return (
