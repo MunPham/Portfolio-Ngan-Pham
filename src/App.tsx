@@ -301,7 +301,7 @@ function Home() {
         {/* Section: Works (Horizontal Scroll) */}
         <section id="projects" className="snap-start snap-always w-full flex flex-col items-center justify-center bg-[#0a0a0a] min-h-[100dvh] md:h-screen relative overflow-hidden pt-24 md:pt-16 pb-12 md:pb-16">
           <div className="w-full max-w-[1800px] flex flex-col gap-6 md:gap-[80px]">
-            <div className="px-6 md:px-12 flex flex-col md:flex-row md:items-end justify-between gap-6 w-full z-10">
+            <div className="px-6 md:px-12 flex flex-col md:flex-row md:items-end justify-between gap-6 w-full relative z-30">
               <div className="max-w-2xl">
                 <span className="text-[12px] tracking-[0.6em] uppercase text-white/40 mb-4 block" style={{ fontFamily: "'RobotoMono', monospace" }}>02 / Projects</span>
                 <h2 className="text-6xl md:text-8xl font-medium tracking-tighter text-white leading-none" style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}>
