@@ -167,19 +167,6 @@ function Home() {
       {/* Progress Bar */}
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-white/20 z-[100] origin-left" style={{ scaleX }} />
 
-      {/* Custom Cursor */}
-      <motion.div
-        animate={{ 
-          x: mousePos.x - 12,
-          y: mousePos.y - 12,
-          scale: isHoveringProject ? 2 : 1,
-        }}
-        transition={{ type: "spring", damping: 30, stiffness: 400, mass: 0.2 }}
-        className="fixed top-0 left-0 w-6 h-6 rounded-full border border-white/40 pointer-events-none z-[100] mix-blend-difference flex items-center justify-center"
-      >
-        <div className="w-1 h-1 bg-white rounded-full" />
-      </motion.div>
-
       {/* Cursor Text Follower (Separate to avoid mix-blend-difference turning it dark) */}
       <motion.div
         animate={{ 
