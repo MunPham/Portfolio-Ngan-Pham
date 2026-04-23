@@ -327,9 +327,9 @@ function Home() {
                   >
                     <svg viewBox="0 0 100 100" className="w-full h-full">
                       <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-                      <text className="text-[9px] uppercase tracking-[0.2em] fill-white group-hover:fill-[#e4ff40] transition-all duration-300">
+                      <text className="text-[7.5px] uppercase tracking-[0.15em] fill-white group-hover:fill-[#e4ff40] transition-all duration-300">
                         <textPath xlinkHref="#circlePath" startOffset="50%" textAnchor="middle">
-                          DISCOVER OTHERS PROJECT ON <tspan className="font-bold">BEHANCE</tspan>
+                          —  Discover other projects on <tspan className="font-bold">Behance</tspan>  —
                         </textPath>
                       </text>
                     </svg>
