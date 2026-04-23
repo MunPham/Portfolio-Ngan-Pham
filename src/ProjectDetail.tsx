@@ -202,39 +202,39 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
       onClick={onClose}
       className="fixed inset-0 z-[100] flex flex-col justify-end p-0 md:px-12 md:pt-24 cursor-pointer bg-black/90 backdrop-blur-md"
     >
+      {/* Header - Fixed to top outside the modal tab to keep it completely unchanged */}
+      <div className="absolute top-0 left-0 right-0 h-24 md:h-24 w-full flex items-center justify-between px-6 md:px-12 pointer-events-none z-[110]">
+        {/* Left: Info */}
+        <div className="flex items-center gap-3 text-[12px] uppercase tracking-[0.2em] text-white/70" style={{ fontFamily: "'RobotoMono', monospace" }}>
+          <span>{brand.name}</span>
+          <span className="text-white/30">/</span>
+          <span>{brand.year}</span>
+        </div>
+        
+        {/* Right: Close Button */}
+        <button 
+          onClick={onClose}
+          className="pointer-events-auto flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40] text-white/70 group"
+          style={{ fontFamily: "'RobotoMono', monospace" }}
+        >
+          <X size={14} className="group-hover:rotate-90 transition-transform duration-300" /> CLOSE
+        </button>
+      </div>
+
       <motion.div
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-7xl mx-auto h-[90vh] md:h-[85vh] bg-[#0a0a0a] rounded-t-3xl shadow-2xl border-t border-l border-r border-white/10 cursor-default flex flex-col overflow-hidden"
+        className="relative w-full max-w-7xl mx-auto h-[88vh] md:h-[88vh] mb-[40px] md:mb-[56px] bg-[#0a0a0a] rounded-t-3xl md:rounded-3xl shadow-2xl border border-white/10 cursor-default flex flex-col overflow-hidden"
       >
-        {/* Header - Fixed to top inside modal */}
-        <div className="shrink-0 h-20 md:h-24 w-full flex items-center justify-between px-6 md:px-12 border-b border-white/5 z-[110]">
-          {/* Left: Info */}
-          <div className="flex items-center gap-3 text-[12px] uppercase tracking-[0.2em] text-white/70" style={{ fontFamily: "'RobotoMono', monospace" }}>
-            <span>{brand.name}</span>
-            <span className="text-white/30">/</span>
-            <span>{brand.year}</span>
-          </div>
-          
-          {/* Right: Close Button */}
-          <button 
-            onClick={onClose}
-            className="pointer-events-auto flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40] text-white/70 group"
-            style={{ fontFamily: "'RobotoMono', monospace" }}
-          >
-            <X size={14} className="group-hover:rotate-90 transition-transform duration-300" /> CLOSE
-          </button>
-        </div>
-
         {/* Scrollable Content Area */}
-        <div className="flex-1 w-full overflow-y-auto overflow-x-hidden no-scrollbar snap-y snap-mandatory relative">
+        <div className="flex-1 w-full h-full overflow-y-auto overflow-x-hidden no-scrollbar snap-y snap-mandatory relative">
           {brand.name === "Samsung" ? (
             <div className="flex flex-col w-full relative">
               {/* Section 1: Samsung AC */}
-              <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-start snap-start relative pt-1 md:pt-4">
+              <div className="w-full shrink-0 min-h-full flex flex-col justify-start snap-start relative pt-8 md:pt-12 pb-10">
                 <div className="px-6 md:px-12 pb-6 shrink-0 flex items-center justify-between w-full">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>1 / Samsung AC</h3>
                   
@@ -257,7 +257,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
               </div>
 
               {/* Section 2: Samsung TV */}
-              <div ref={tvRef} className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] flex flex-col justify-start snap-start relative pt-1 md:pt-4">
+              <div ref={tvRef} className="w-full shrink-0 min-h-full flex flex-col justify-start snap-start relative pt-8 md:pt-12 pb-10">
                 <div className="px-6 md:px-12 pb-6 shrink-0">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Samsung TV</h3>
                 </div>
@@ -268,7 +268,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
               </div>
             </div>
           ) : (
-            <div className="w-full shrink-0 min-h-[calc(90vh-5rem)] md:min-h-[calc(85vh-6rem)] snap-start flex flex-col justify-start pt-8 md:pt-10" >
+            <div className="w-full shrink-0 min-h-full snap-start flex flex-col justify-center pb-20 md:pb-24 pt-8 md:pt-10" >
                <HorizontalScrollRow images={images} />
             </div>
           )}
