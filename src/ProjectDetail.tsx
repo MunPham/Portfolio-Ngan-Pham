@@ -286,7 +286,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
             </div>
           ) : (
             <div className="w-full shrink-0 min-h-full snap-start flex flex-col justify-center pb-20 md:pb-24 pt-8 md:pt-10" >
-               <HorizontalScrollRow images={images} />
+               <HorizontalScrollRow images={images} loop={brand.name !== "Ôliv"} />
             </div>
           )}
         </div>
