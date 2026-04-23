@@ -25,7 +25,7 @@ const ProjectBox = ({ src, title, rotation, yOffset, index, onHover }: { src: st
       onHoverStart={() => { setIsHovered(true); onHover(true); }}
       onHoverEnd={() => { setIsHovered(false); onHover(false); }}
       onClick={() => navigate(`/project/${index % 5}`)}
-      className="bg-white/5 overflow-hidden relative group shrink-0 w-[65vw] h-[65vw] sm:w-[50vw] sm:h-[50vw] md:w-[20vw] md:h-[20vw] cursor-pointer snap-center md:snap-align-none"
+      className="bg-white/5 overflow-hidden relative group shrink-0 w-[55vw] h-[55vw] sm:w-[45vw] sm:h-[45vw] md:w-[20vw] md:h-[20vw] cursor-pointer snap-center md:snap-align-none"
       animate={{ 
         rotate: rotation, 
         y: yOffset, 
@@ -299,8 +299,8 @@ function Home() {
         </section>
 
         {/* Section: Works (Horizontal Scroll) */}
-        <section id="projects" className="snap-start snap-always w-full flex flex-col items-center justify-center bg-[#0a0a0a] min-h-[100dvh] md:h-screen relative overflow-hidden pt-32 md:pt-16 pb-12 md:pb-16">
-          <div className="w-full max-w-[1800px] flex flex-col gap-12 md:gap-[80px]">
+        <section id="projects" className="snap-start snap-always w-full flex flex-col items-center justify-center bg-[#0a0a0a] min-h-[100dvh] md:h-screen relative overflow-hidden pt-24 md:pt-16 pb-12 md:pb-16">
+          <div className="w-full max-w-[1800px] flex flex-col gap-6 md:gap-[80px]">
             <div className="px-6 md:px-12 flex flex-col md:flex-row md:items-end justify-between gap-6 w-full z-10">
               <div className="max-w-2xl">
                 <span className="text-[12px] tracking-[0.6em] uppercase text-white/40 mb-4 block" style={{ fontFamily: "'RobotoMono', monospace" }}>02 / Projects</span>
@@ -341,8 +341,8 @@ function Home() {
               </div>
             </div>
 
-            <div className="flex w-full md:justify-center items-center relative lg:overflow-visible">
-              <div className="flex overflow-x-auto md:overflow-visible w-full snap-x snap-mandatory gap-6 md:gap-0 pl-6 md:pl-12 pr-[40vw] md:pr-12 md:-space-x-12 items-center md:justify-center no-scrollbar translate-x-0 md:translate-x-6 py-24 md:py-0">
+            <div className="flex w-full md:justify-center items-center relative lg:overflow-visible z-20">
+              <div className="flex overflow-x-auto md:overflow-visible w-full snap-x snap-mandatory gap-6 md:gap-0 pl-6 md:pl-12 pr-[40vw] md:pr-12 md:-space-x-12 items-center md:justify-center no-scrollbar translate-x-0 md:translate-x-6 py-[20vh] md:py-0 -my-[15vh] md:-my-0">
                 {[
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", rotation: 15, yOffset: 15 },
                   { src: ssEuro2, title: "Social Media Design", rotation: -8, yOffset: -25 },
