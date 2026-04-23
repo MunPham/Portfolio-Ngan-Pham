@@ -35,7 +35,13 @@ import oliv5 from '../SOURCE/Ôliv/oliv 5.webp';
 import oliv6 from '../SOURCE/Ôliv/oliv 6.webp';
 import oliv7 from '../SOURCE/Ôliv/oliv 7.webp';
 
+import ssEuro1 from '../SOURCE/SAMSUNG/SS TV/SS EURO 1.webp';
 import ssEuro2 from '../SOURCE/SAMSUNG/SS TV/SS EURO 2.webp';
+import ssEuro3 from '../SOURCE/SAMSUNG/SS TV/SS EURO 3.webp';
+import ssEuro4 from '../SOURCE/SAMSUNG/SS TV/SS EURO 4.webp';
+import ssEuro5 from '../SOURCE/SAMSUNG/SS TV/SS EURO 5.webp';
+import ssEuro6 from '../SOURCE/SAMSUNG/SS TV/SS EURO 6.webp';
+import ssEuro7 from '../SOURCE/SAMSUNG/SS TV/SS EURO 7.webp';
 import ssAc1 from '../SOURCE/SAMSUNG/SS AC/Thang 11 - 3.webp';
 import ssAc2 from '../SOURCE/SAMSUNG/SS AC/Thang 12 - 2.webp';
 import ssAc3 from '../SOURCE/SAMSUNG/SS AC/Thang 12 - 3.webp';
@@ -187,6 +193,10 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
     ssAc1, ssAc2, ssAc3, ssAc4, ssAc5, ssAc6, ssAc7, ssAc8, ssAc9, ssAc10, ssAc11
   ];
 
+  const ssTvImages = [
+    ssEuro1, ssEuro2, ssEuro3, ssEuro4, ssEuro5, ssEuro6, ssEuro7
+  ];
+
   const tvRef = useRef<HTMLDivElement>(null);
   
   const scrollToTV = () => {
@@ -263,8 +273,8 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Samsung TV</h3>
                 </div>
                 <div className="w-full shrink-0 flex flex-col justify-start">
-                   {/* Placeholder images */}
-                   <HorizontalScrollRow images={images} loop={false} />
+                   {/* Samsung TV images */}
+                   <HorizontalScrollRow images={ssTvImages} loop={false} />
                 </div>
               </div>
             </div>
