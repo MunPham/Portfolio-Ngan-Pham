@@ -214,7 +214,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
         {/* Right: Close Button */}
         <button 
           onClick={onClose}
-          className="pointer-events-auto flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40] text-white/70 group"
+          className="pointer-events-auto flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40] text-white/70 group cursor-pointer"
           style={{ fontFamily: "'RobotoMono', monospace" }}
         >
           <X size={14} className="group-hover:rotate-90 transition-transform duration-300" /> CLOSE
@@ -382,7 +382,7 @@ const ProjectDetail = () => {
           <div className="flex items-center gap-8">
             <button 
               onClick={() => navigate("/")}
-              className="flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40]"
+              className="flex items-center gap-2 text-[12px] uppercase tracking-[0.4em] transition-colors hover:text-[#e4ff40] cursor-pointer"
               style={{ fontFamily: "'RobotoMono', monospace" }}
             >
               <ArrowLeft size={14} /> Back
@@ -412,7 +412,7 @@ const ProjectDetail = () => {
                           setIsDropdownOpen(false);
                           navigate(`/project/${idx}`);
                         }}
-                        className={`text-left px-5 py-4 text-[10px] uppercase tracking-[0.2em] transition-colors ${
+                        className={`cursor-pointer text-left px-5 py-4 text-[10px] uppercase tracking-[0.2em] transition-colors ${
                           idx === projectIndex 
                             ? 'bg-white/20 text-[#e4ff40]' 
                             : 'text-white/70 hover:bg-white/10 hover:text-white'
