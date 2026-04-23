@@ -70,7 +70,7 @@ export const FooterFountain = () => {
             opacity: { duration: config.duration, delay: config.delay, ease: "linear", times: [0, 0.05, 0.8, 1] }
           }}
           // Kích thước chuẩn
-          className="absolute bottom-0 w-20 h-20 md:w-32 md:h-32 object-cover shadow-xl backdrop-blur-sm"
+          className="absolute bottom-0 w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-cover shadow-xl backdrop-blur-sm"
           style={{ transformOrigin: "center" }}
         />
       ))}

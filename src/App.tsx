@@ -249,7 +249,7 @@ function Home() {
         )}
       </AnimatePresence>
 
-      <main ref={mainRef} className="h-screen w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory">
+      <main ref={mainRef} className="h-screen w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory md:snap-none lg:snap-y lg:snap-mandatory">
         {/* Section: About (Hero) */}
         <section 
           id="about" 
@@ -299,7 +299,7 @@ function Home() {
         </section>
 
         {/* Section: Works (Horizontal Scroll) */}
-        <section id="projects" className="snap-start snap-always w-full flex flex-col items-center justify-center bg-[#0a0a0a] min-h-[100dvh] md:h-screen relative overflow-hidden pt-24 md:pt-12 lg:pt-16 pb-12 md:pb-12 lg:pb-16">
+        <section id="projects" className="snap-start snap-always w-full flex flex-col items-center justify-center bg-[#0a0a0a] min-h-[100dvh] md:min-h-0 lg:min-h-[100dvh] md:h-auto lg:h-screen relative overflow-hidden pt-24 md:pt-32 lg:pt-16 pb-12 md:pb-24 lg:pb-16">
           <div className="w-full max-w-[1800px] flex flex-col gap-6 md:gap-[40px] lg:gap-[80px]">
             <div className="px-6 md:px-8 lg:px-12 flex flex-col md:flex-row md:items-end justify-between gap-6 w-full relative z-30">
               <div className="max-w-2xl">
@@ -362,7 +362,7 @@ function Home() {
         </section>
 
         {/* Section: Services (Technical Treatment) */}
-        <section id="expertise" className="snap-start snap-always min-h-[100dvh] md:h-screen w-full flex flex-col justify-center bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden py-32 md:py-0">
+        <section id="expertise" className="snap-start snap-always min-h-[100dvh] md:min-h-0 lg:min-h-[100dvh] md:h-auto lg:h-screen w-full flex flex-col justify-center bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden py-32 md:py-24 lg:py-0">
           <div className="px-6 md:px-8 lg:px-12 mb-12 md:mt-16 lg:mt-20">
             <span className="text-[12px] tracking-[0.6em] uppercase text-white/40 mb-4 block" style={{ fontFamily: "'RobotoMono', monospace" }}>03 / Expertise</span>
             <h2 className="text-6xl md:text-6xl lg:text-8xl font-medium tracking-tighter text-white leading-none" style={{ fontFamily: "'HalenoirExpanded', sans-serif" }}>
@@ -393,7 +393,7 @@ function Home() {
         </section>
 
         {/* Section: Contact */}
-        <section id="contact" className="snap-start snap-always w-full flex flex-col pt-32 bg-[#0a0a0a] relative min-h-screen">
+        <section id="contact" className="snap-start snap-always w-full flex flex-col pt-32 md:pt-24 lg:pt-32 bg-[#0a0a0a] relative min-h-screen md:min-h-0 lg:min-h-screen">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           
           <div className="relative z-10 px-6 md:px-8 lg:px-12 flex-1 flex flex-col justify-center pb-24">
