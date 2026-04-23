@@ -329,7 +329,11 @@ function Home() {
                       <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
                       <text className="text-[7.5px] uppercase tracking-[0.15em] fill-white group-hover:fill-[#e4ff40] transition-all duration-300">
                         <textPath xlinkHref="#circlePath" startOffset="50%" textAnchor="middle">
-                          —  Discover other projects on <tspan className="font-bold">Behance</tspan>  —
+                          <tspan className="tracking-[0em]">───────────────────────────</tspan>
+                          <tspan>{"   "}Discover other projects on </tspan>
+                          <tspan className="font-bold">Behance</tspan>
+                          <tspan>{"   "}</tspan>
+                          <tspan className="tracking-[0em]">───────────────────────────</tspan>
                         </textPath>
                       </text>
                     </svg>
