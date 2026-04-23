@@ -58,6 +58,7 @@ import ssTheFrame2 from '../SOURCE/SAMSUNG/SS The Frame/DECK SS THE FRAME 2.webp
 import ssTheFrame3 from '../SOURCE/SAMSUNG/SS The Frame/DECK SS THE FRAME 3.webp';
 import caltexHavoline1 from '../SOURCE/CALTEX HAVOLINE/Caltex Havoline 1.webp';
 import caltexHavoline3 from '../SOURCE/CALTEX HAVOLINE/Caltex Havoline 3.webp';
+import tikiPost2 from '../SOURCE/TIKI/TIKI POST 2.webp';
 
 const monthImages = [
   tháng1,
@@ -90,7 +91,7 @@ const socialBrands = [
   { name: "Ôliv", year: "2023", logoUrl: "", artUrl: oliv1, isAI: false },
   { name: "7UP", year: "2021", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
   { name: "Caltex Havoline", year: "2024", logoUrl: "", artUrl: caltexHavoline1, isAI: false },
-  { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
+  { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: tikiPost2, isAI: false },
   { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
 ];
 
