@@ -334,7 +334,7 @@ function Home() {
                       </text>
                     </svg>
                   </motion.div>
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center group-hover:scale-[1.5] group-hover:hologram-bg transition-all duration-500">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center group-hover:scale-[1.25] md:group-hover:scale-[1.5] group-hover:hologram-bg transition-all duration-500">
                     <span className="text-black font-bold text-xs">Bē</span>
                   </div>
                 </a>
