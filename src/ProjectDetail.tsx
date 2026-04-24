@@ -661,6 +661,20 @@ const ProjectDetail = () => {
                   );
                 })}
               </div>
+              <div className="w-full flex justify-center mt-4 pointer-events-none relative z-20">
+                {/* Scroll Down Indicator */}
+                <div 
+                   onClick={() => document.getElementById("other-merch")?.scrollIntoView({ behavior: 'smooth' })}
+                   className="group flex flex-col items-center cursor-pointer pointer-events-auto"
+                >
+                  <div className="flex items-center gap-2 text-white group-hover:text-[#e4ff40] transition-colors duration-300">
+                    <span className="text-[12px] tracking-[0.4em] uppercase" style={{ fontFamily: 'RobotoMono', fontSize: '12px' }}>Scroll down for more</span>
+                    <span className="relative flex items-center overflow-hidden w-4 h-4">
+                      <ArrowDown className="w-4 h-4 absolute opacity-0 -translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500" />
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
