@@ -57,6 +57,7 @@ import ssTheFrame1 from '../SOURCE/SAMSUNG/SS The Frame/DECK SS THE FRAME 1.webp
 import ssTheFrame2 from '../SOURCE/SAMSUNG/SS The Frame/DECK SS THE FRAME 2.webp';
 import ssTheFrame3 from '../SOURCE/SAMSUNG/SS The Frame/DECK SS THE FRAME 3.webp';
 import caltexHavoline1 from '../SOURCE/CALTEX HAVOLINE/Caltex Havoline 1.webp';
+import caltexHavoline2 from '../SOURCE/CALTEX HAVOLINE/Caltex Havoline 2.webp';
 import caltexHavoline3 from '../SOURCE/CALTEX HAVOLINE/Caltex Havoline 3.webp';
 import tikiPost2 from '../SOURCE/TIKI/TIKI POST 2.webp';
 
@@ -84,12 +85,12 @@ const projects = [
 ];
 
 const socialBrands = [
-  { name: "Pönnie", year: "2023", logoUrl: "", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "Pönnie", year: "2025-2026", logoUrl: "", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
   { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: ssEuro2, isAI: false },
-  { name: "Visa", year: "2022", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
-  { name: "Tiger", year: "2022", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "Visa", year: "2023-2026", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
+  { name: "Tiger", year: "2026", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
   { name: "Ôliv", year: "2023", logoUrl: "", artUrl: oliv1, isAI: false },
-  { name: "7UP", year: "2021", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "7UP", year: "2026", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
   { name: "Caltex Havoline", year: "2024", logoUrl: "", artUrl: caltexHavoline1, isAI: false },
   { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: tikiPost2, isAI: false },
   { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
@@ -184,6 +185,12 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
         oliv5,
         oliv6,
         oliv7
+      ]
+    : brand.name === "Caltex Havoline"
+    ? [
+        caltexHavoline1,
+        caltexHavoline2,
+        caltexHavoline3
       ]
     : [
         brand.artUrl, 
@@ -287,7 +294,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
             </div>
           ) : (
             <div className="w-full shrink-0 min-h-full snap-start flex flex-col justify-center pb-20 md:pb-24 pt-8 md:pt-10" >
-               <HorizontalScrollRow images={images} loop={brand.name !== "Ôliv"} />
+               <HorizontalScrollRow images={images} loop={brand.name !== "Ôliv" && brand.name !== "Caltex Havoline"} />
             </div>
           )}
         </div>
@@ -713,11 +720,11 @@ const ProjectDetail = () => {
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   {[
-                    { name: "Visa", year: "2023" },
-                    { name: "Ponnie", year: "2024" },
-                    { name: "7UP", year: "2023" },
+                    { name: "Visa", year: "2023-2026" },
+                    { name: "Ponnie", year: "2025-2026" },
+                    { name: "7UP", year: "2026" },
                     { name: "Samsung", year: "2024" },
-                    { name: "Tiger", year: "2022" },
+                    { name: "Tiger", year: "2026" },
                     { name: "Tiki", year: "2023" },
                     { name: "ACB", year: "2024" },
                     { name: "HDBank", year: "2023" }
