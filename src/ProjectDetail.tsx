@@ -60,6 +60,15 @@ import caltexHavoline1 from '../SOURCE/CALTEX HAVOLINE/Caltex Havoline 1.webp';
 import caltexHavoline2 from '../SOURCE/CALTEX HAVOLINE/Caltex Havoline 2.webp';
 import caltexHavoline3 from '../SOURCE/CALTEX HAVOLINE/Caltex Havoline 3.webp';
 import tikiPost2 from '../SOURCE/TIKI/TIKI POST 2.webp';
+import ponnie1 from '../SOURCE/PONNIE/Ponnie 1.webp';
+import ponnie2 from '../SOURCE/PONNIE/Ponnie 2.webp';
+import ponnie3 from '../SOURCE/PONNIE/Ponnie 3.webp';
+import ponnie4 from '../SOURCE/PONNIE/Ponnie 4.webp';
+import ponnie5 from '../SOURCE/PONNIE/Ponnie 5.webp';
+import ponnie6 from '../SOURCE/PONNIE/Ponnie 6.webp';
+import ponnie7 from '../SOURCE/PONNIE/Ponnie 7.webp';
+import ponnie8 from '../SOURCE/PONNIE/Ponnie 8.webp';
+import ponnie9 from '../SOURCE/PONNIE/Ponnie 9.webp';
 
 const monthImages = [
   tháng1,
@@ -157,7 +166,7 @@ const HorizontalScrollRow = ({ images, heightClass = "h-[50vh] md:h-[65vh]", wid
           <React.Fragment key={groupIdx}>
             {images.map((src, i) => (
               <div key={`c${groupIdx}-${i}`} className={`flex-shrink-0 ${widthClass} ${heightClass} bg-white/5 overflow-hidden group border border-white/10 relative`}>
-                <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+                <img src={src} className={`${widthClass === 'w-auto' ? 'w-auto block' : 'w-full'} h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105`} alt="" />
               </div>
             ))}
           </React.Fragment>
@@ -165,7 +174,7 @@ const HorizontalScrollRow = ({ images, heightClass = "h-[50vh] md:h-[65vh]", wid
       ) : (
         images.map((src, i) => (
           <div key={`c-${i}`} className={`flex-shrink-0 ${widthClass} ${heightClass} bg-white/5 overflow-hidden group border border-white/10 relative`}>
-            <img src={src} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+            <img src={src} className={`${widthClass === 'w-auto' ? 'w-auto block' : 'w-full'} h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105`} alt="" />
           </div>
         ))
       )}
@@ -191,6 +200,18 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
         caltexHavoline1,
         caltexHavoline2,
         caltexHavoline3
+      ]
+    : brand.name === "Pönnie"
+    ? [
+        ponnie1,
+        ponnie2,
+        ponnie3,
+        ponnie4,
+        ponnie5,
+        ponnie6,
+        ponnie7,
+        ponnie8,
+        ponnie9
       ]
     : [
         brand.artUrl, 
@@ -294,7 +315,11 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
             </div>
           ) : (
             <div className="w-full shrink-0 min-h-full snap-start flex flex-col justify-center pb-20 md:pb-24 pt-8 md:pt-10" >
-               <HorizontalScrollRow images={images} loop={brand.name !== "Ôliv" && brand.name !== "Caltex Havoline"} />
+               <HorizontalScrollRow 
+                 images={images} 
+                 loop={brand.name !== "Ôliv" && brand.name !== "Caltex Havoline" && brand.name !== "Pönnie"} 
+                 widthClass={brand.name === "Pönnie" ? "w-auto" : undefined}
+               />
             </div>
           )}
         </div>
