@@ -24,7 +24,7 @@ const ProjectBox = ({ src, title, rotation, yOffset, index, onHover }: { src: st
       ref={containerRef}
       onHoverStart={() => { setIsHovered(true); onHover(true); }}
       onHoverEnd={() => { setIsHovered(false); onHover(false); }}
-      onClick={() => navigate(`/project/${index % 5}`)}
+      onClick={() => navigate(`/project/${index % 4}`)}
       className="bg-white/5 overflow-hidden relative group shrink-0 w-[55vw] h-[55vw] sm:w-[45vw] sm:h-[45vw] md:w-[15vw] md:h-[15vw] lg:w-[20vw] lg:h-[20vw] cursor-pointer snap-center md:snap-align-none"
       animate={{ 
         rotate: rotation, 
@@ -346,13 +346,12 @@ function Home() {
             </div>
 
             <div className="flex w-full md:justify-center items-center relative lg:overflow-visible z-20">
-              <div className="flex overflow-x-auto md:overflow-visible w-full snap-x snap-mandatory gap-6 md:gap-0 pl-6 md:pl-8 lg:pl-12 pr-[40vw] md:pr-8 lg:pr-12 md:-space-x-8 lg:-space-x-12 items-center md:justify-center no-scrollbar translate-x-0 md:translate-x-4 lg:translate-x-6 py-[20vh] md:py-0 -my-[15vh] md:-my-0">
+              <div className="flex overflow-x-auto md:overflow-visible w-full snap-x snap-mandatory gap-6 md:gap-0 pl-6 md:pl-0 pr-[40vw] md:pr-0 md:-space-x-8 lg:-space-x-12 items-center md:justify-center no-scrollbar py-[20vh] md:py-0 -my-[15vh] md:-my-0">
                 {[
                   { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", rotation: 15, yOffset: 15 },
                   { src: ssEuro2, title: "Social Media Design", rotation: -8, yOffset: -25 },
                   { src: month1, title: "Merchandise", rotation: 6, yOffset: 45 },
-                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", rotation: -12, yOffset: 5 },
-                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Brand Identity", rotation: 18, yOffset: 25 }
+                  { src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", rotation: -12, yOffset: 5 }
                 ].map((p, i) => (
                   <ProjectBox key={i} index={i} src={p.src} title={p.title} rotation={p.rotation} yOffset={p.yOffset} onHover={setIsHoveringProject} />
                 ))}
