@@ -341,7 +341,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                   </div>
                 </div>
                 <div className="w-full shrink-0 flex flex-col justify-start">
-                   <HorizontalScrollRow images={images.slice(4)} loop={false} widthClass="w-auto" heightClass="h-[50vh] md:h-[65vh]" />
+                   <HorizontalScrollRow images={images} loop={false} widthClass="w-auto" heightClass="h-[50vh] md:h-[65vh]" />
                 </div>
               </div>
 
@@ -353,13 +353,13 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[50vh] md:h-[65vh]">
                    <div className="flex w-full max-w-[1200px] gap-2 md:gap-4 h-full mx-auto justify-center">
                        <div className="w-[45%] lg:w-[40%] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 h-full shrink-0">
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={images[0]} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={images[1]} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={images[2]} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={images[3]} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                        </div>
                        <div className="w-[50%] lg:w-[45%] h-full bg-white/5 overflow-hidden group border border-white/10 relative shrink-0">
-                           <img src={images[8]} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
+                           <img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
                        </div>
                    </div>
                 </div>
