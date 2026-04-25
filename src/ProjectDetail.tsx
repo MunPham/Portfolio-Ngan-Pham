@@ -426,7 +426,12 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                              <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                              <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                          </div>
-                         <VideoPlayerBlock videoUrl="https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4" />
+                         <VideoPlayerBlock videoUrl={
+                           idx === 0 ? "https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4" :
+                           idx === 1 ? "https://res.cloudinary.com/dz154pwxa/video/upload/v1777142349/PONNIE_VIDEO_2_bwahhd.mp4" :
+                           idx === 2 ? "https://res.cloudinary.com/dz154pwxa/video/upload/v1777143136/PONNIE_VIDEO_3_y68sch.mp4" :
+                           "https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4"
+                         } />
                      </div>
                   </div>
                 </div>
