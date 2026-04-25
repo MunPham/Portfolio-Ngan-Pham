@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from "motion/react";
-import { ArrowLeft, ArrowUpRight, ChevronDown, ArrowDown, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ChevronDown, ArrowDown, X, Play } from "lucide-react";
 import { FooterFountain } from "./components/FooterFountain";
 import { Footer } from "./components/Footer";
 
@@ -182,6 +182,47 @@ const HorizontalScrollRow = ({ images, heightClass = "h-[50vh] md:h-[65vh]", wid
   );
 };
 
+const VisaVideoPlayer = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    <div className="w-[50%] lg:w-[45%] h-full bg-black/80 overflow-hidden group border border-white/10 relative shrink-0 cursor-pointer" onClick={togglePlay}>
+      <video 
+        ref={videoRef}
+        src="https://res.cloudinary.com/dz154pwxa/video/upload/v1777141112/20260422_Visa_AO_Video_post_last_minute_mbja0n.mp4" 
+        className="w-full h-full object-contain transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" 
+        playsInline
+        loop
+      />
+      {!isPlaying && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/40 shadow-xl z-10 transition-transform group-hover:scale-110">
+            <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+          </div>
+          <div 
+            className="mt-4 px-4 py-2 bg-black/60 backdrop-blur-md rounded-full text-white tracking-[0.2em] uppercase border border-white/10 whitespace-nowrap"
+            style={{ fontFamily: "'RobotoMono', monospace", fontSize: '12px', fontWeight: 300 }}
+          >
+            Click to play
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: () => void }) => {
   const brand = socialBrands[brandIndex];
 
@@ -213,6 +254,12 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
         ponnie8,
         ponnie9
       ]
+    : brand.name === "Visa"
+    ? [
+        visa1,
+        visa2,
+        visa3
+      ]
     : [
         brand.artUrl, 
         "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", 
@@ -234,6 +281,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
 
   const tvRef = useRef<HTMLDivElement>(null);
   const ponnieSection2Ref = useRef<HTMLDivElement>(null);
+  const visaSection2Ref = useRef<HTMLDivElement>(null);
   
   const scrollToTV = () => {
     if (tvRef.current) {
@@ -244,6 +292,12 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
   const scrollToPonnieSection2 = () => {
     if (ponnieSection2Ref.current) {
       ponnieSection2Ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToVisaSection2 = () => {
+    if (visaSection2Ref.current) {
+      visaSection2Ref.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -361,6 +415,49 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                        <div className="w-[50%] lg:w-[45%] h-full bg-white/5 overflow-hidden group border border-white/10 relative shrink-0">
                            <img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" />
                        </div>
+                   </div>
+                </div>
+              </div>
+            </div>
+          ) : brand.name === "Visa" ? (
+            <div className="flex flex-col w-full relative">
+              {/* Section 1: Social Content */}
+              <div className="w-full shrink-0 min-h-full flex flex-col justify-start snap-start relative pt-8 md:pt-12 pb-10">
+                <div className="px-6 md:px-12 pb-6 shrink-0 flex items-center justify-between w-full">
+                  <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>1 / Social Content</h3>
+                  
+                  {/* Scroll Down Indicator */}
+                  <div 
+                     onClick={scrollToVisaSection2}
+                     className="group flex flex-col items-end cursor-pointer pr-2"
+                  >
+                    <div className="flex items-center gap-2 text-white group-hover:text-[#e4ff40] transition-colors duration-300">
+                      <span className="text-[12px] tracking-[0.4em] uppercase" style={{ fontFamily: 'RobotoMono', fontSize: '12px' }}>Scroll down for more</span>
+                      <span className="relative flex items-center overflow-hidden w-4 h-4">
+                        <ArrowDown className="w-4 h-4 absolute opacity-0 -translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full shrink-0 flex flex-col justify-start">
+                   <HorizontalScrollRow images={images} loop={false} widthClass="w-auto" heightClass="h-[50vh] md:h-[65vh]" />
+                </div>
+              </div>
+
+              {/* Section 2: Playlist Video Block */}
+              <div ref={visaSection2Ref} className="w-full shrink-0 min-h-full flex flex-col justify-start snap-start relative pt-8 md:pt-12 pb-10">
+                <div className="px-6 md:px-12 pb-6 shrink-0">
+                  <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
+                </div>
+                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[50vh] md:h-[65vh]">
+                   <div className="flex w-full max-w-[1200px] gap-2 md:gap-4 h-full mx-auto justify-center">
+                       <div className="w-[45%] lg:w-[40%] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 h-full shrink-0">
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                       </div>
+                       <VisaVideoPlayer />
                    </div>
                 </div>
               </div>
