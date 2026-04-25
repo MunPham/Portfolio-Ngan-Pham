@@ -404,12 +404,13 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 <div className="px-6 md:px-12 pb-6 shrink-0">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
                 </div>
-                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[50vh] md:h-[65vh]">
-                   <div className="flex w-full max-w-[1200px] gap-2 md:gap-4 h-full mx-auto justify-center">
-                       <div className="w-[45%] lg:w-[40%] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 h-full shrink-0">
-                           <div className="row-span-2 w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12">
+                   <div className="flex items-stretch w-full max-w-[1200px] gap-2 md:gap-4 mx-auto justify-center">
+                       <div className="w-[45%] lg:w-[40%] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
+                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                        </div>
                        <VideoPlayerBlock videoUrl="https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4" />
                    </div>
@@ -446,13 +447,13 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 <div className="px-6 md:px-12 pb-6 shrink-0">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
                 </div>
-                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[50vh] md:h-[65vh]">
-                   <div className="flex w-full max-w-[1200px] gap-2 md:gap-4 h-full mx-auto justify-center">
-                       <div className="w-[45%] lg:w-[40%] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 h-full shrink-0">
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12">
+                   <div className="flex items-stretch w-full max-w-[1200px] gap-2 md:gap-4 mx-auto justify-center">
+                       <div className="w-[45%] lg:w-[40%] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
+                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                        </div>
                        <VideoPlayerBlock videoUrl="https://res.cloudinary.com/dz154pwxa/video/upload/v1777141112/20260422_Visa_AO_Video_post_last_minute_mbja0n.mp4" />
                    </div>
