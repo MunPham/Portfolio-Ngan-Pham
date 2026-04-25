@@ -430,7 +430,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                            idx === 0 ? "https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4" :
                            idx === 1 ? "https://res.cloudinary.com/dz154pwxa/video/upload/v1777142349/PONNIE_VIDEO_2_bwahhd.mp4" :
                            idx === 2 ? "https://res.cloudinary.com/dz154pwxa/video/upload/v1777143136/PONNIE_VIDEO_3_y68sch.mp4" :
-                           "https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4"
+                           "https://res.cloudinary.com/dz154pwxa/video/upload/v1777142339/PONNIE_VIDEO_4_m009p4.mp4"
                          } />
                      </div>
                   </div>
