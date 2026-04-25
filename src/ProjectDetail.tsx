@@ -199,11 +199,11 @@ const VideoPlayerBlock = ({ videoUrl }: { videoUrl: string }) => {
   };
 
   return (
-    <div className="h-full aspect-[9/16] bg-black/80 overflow-hidden group border border-white/10 relative shrink-0 cursor-pointer" onClick={togglePlay}>
+    <div className="h-full aspect-[4/5] bg-black/80 overflow-hidden group border border-white/10 relative shrink-0 cursor-pointer" onClick={togglePlay}>
       <video 
         ref={videoRef}
         src={videoUrl} 
-        className="w-full h-full object-contain transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" 
+        className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" 
         playsInline
         loop
       />
@@ -406,7 +406,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
                 </div>
                 <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
-                   <div className="flex w-full gap-2 md:gap-4 h-full mx-auto justify-center items-center">
+                   <div className="flex w-full gap-8 md:gap-16 lg:gap-24 h-full mx-auto justify-center items-center">
                        <div className="h-full aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
                            <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                            <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
@@ -449,7 +449,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
                 </div>
                 <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
-                   <div className="flex w-full gap-2 md:gap-4 h-full mx-auto justify-center items-center">
+                   <div className="flex w-full gap-8 md:gap-16 lg:gap-24 h-full mx-auto justify-center items-center">
                        <div className="h-full aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
                            <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                            <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
