@@ -98,8 +98,9 @@ const socialBrands = [
   { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: ssEuro2, isAI: false },
   { name: "Visa", year: "2023-2026", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "Tiger", year: "2026", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
-  { name: "Ôliv", year: "2023", logoUrl: "", artUrl: oliv1, isAI: false },
   { name: "7UP", year: "2026", logoUrl: "https://logo.clearbit.com/7up.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "Lazada", year: "2024", logoUrl: "https://logo.clearbit.com/lazada.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "Ôliv", year: "2023", logoUrl: "", artUrl: oliv1, isAI: false },
   { name: "Caltex Havoline", year: "2024", logoUrl: "", artUrl: caltexHavoline1, isAI: false },
   { name: "Tiki", year: "2020", logoUrl: "https://logo.clearbit.com/tiki.vn", artUrl: tikiPost2, isAI: false },
   { name: "HDBank", year: "2020", logoUrl: "https://logo.clearbit.com/hdbank.com.vn", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
@@ -198,7 +199,7 @@ const VideoPlayerBlock = ({ videoUrl }: { videoUrl: string }) => {
   };
 
   return (
-    <div className="w-[50%] lg:w-[45%] h-full bg-black/80 overflow-hidden group border border-white/10 relative shrink-0 cursor-pointer" onClick={togglePlay}>
+    <div className="h-full aspect-[9/16] bg-black/80 overflow-hidden group border border-white/10 relative shrink-0 cursor-pointer" onClick={togglePlay}>
       <video 
         ref={videoRef}
         src={videoUrl} 
@@ -404,13 +405,13 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 <div className="px-6 md:px-12 pb-6 shrink-0">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
                 </div>
-                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12">
-                   <div className="flex items-stretch w-full max-w-[1200px] gap-2 md:gap-4 mx-auto justify-center">
-                       <div className="w-[45%] lg:w-[40%] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
-                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
+                   <div className="flex w-full gap-2 md:gap-4 h-full mx-auto justify-center items-center">
+                       <div className="h-full aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                        </div>
                        <VideoPlayerBlock videoUrl="https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4" />
                    </div>
@@ -447,13 +448,13 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 <div className="px-6 md:px-12 pb-6 shrink-0">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
                 </div>
-                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12">
-                   <div className="flex items-stretch w-full max-w-[1200px] gap-2 md:gap-4 mx-auto justify-center">
-                       <div className="w-[45%] lg:w-[40%] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
-                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full aspect-[4/5] bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
+                   <div className="flex w-full gap-2 md:gap-4 h-full mx-auto justify-center items-center">
+                       <div className="h-full aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                        </div>
                        <VideoPlayerBlock videoUrl="https://res.cloudinary.com/dz154pwxa/video/upload/v1777141112/20260422_Visa_AO_Video_post_last_minute_mbja0n.mp4" />
                    </div>
@@ -908,6 +909,8 @@ const ProjectDetail = () => {
                     { name: "Visa", year: "2023-2026" },
                     { name: "Ponnie", year: "2025-2026" },
                     { name: "7UP", year: "2026" },
+                    { name: "Lazada", year: "2024" },
+                    { name: "Ôliv", year: "2023" },
                     { name: "Samsung", year: "2024" },
                     { name: "Tiger", year: "2026" },
                     { name: "Tiki", year: "2023" },
