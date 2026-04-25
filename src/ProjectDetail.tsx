@@ -400,23 +400,37 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 </div>
               </div>
 
-              {/* Section 2: Playlist Video Block */}
-              <div ref={ponnieSection2Ref} className="w-full shrink-0 min-h-full flex flex-col justify-start snap-start relative pt-8 md:pt-12 pb-10">
-                <div className="px-6 md:px-12 pb-6 shrink-0">
-                  <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
+              {/* Section 2: Playlist Video Blocks (stacked vertically) */}
+              {[0, 1, 2, 3].map((idx) => (
+                <div key={idx} ref={idx === 0 ? ponnieSection2Ref : null} className="w-full shrink-0 min-h-full flex flex-col justify-start snap-start relative pt-8 md:pt-12 pb-10">
+                  <div className="px-6 md:px-12 pb-6 shrink-0 flex items-center justify-between w-full">
+                    <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
+                    
+                    {/* Add Scroll Down Indicator for all but the last item */}
+                    {idx < 3 && (
+                      <div className="group flex flex-col items-end pl-2 md:pr-2">
+                        <div className="flex items-center gap-2 text-white group-hover:text-[#e4ff40] transition-colors duration-300">
+                          <span className="text-[12px] tracking-[0.4em] uppercase" style={{ fontFamily: 'RobotoMono', fontSize: '12px' }}>Scroll down for more</span>
+                          <span className="relative flex items-center overflow-hidden w-4 h-4">
+                            <ArrowDown className="w-4 h-4 absolute opacity-0 -translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500" />
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
+                     <div className="flex w-full gap-8 md:gap-16 lg:gap-24 h-full mx-auto justify-center items-center">
+                         <div className="h-full aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
+                             <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                             <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                             <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                             <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                         </div>
+                         <VideoPlayerBlock videoUrl="https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4" />
+                     </div>
+                  </div>
                 </div>
-                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
-                   <div className="flex w-full gap-8 md:gap-16 lg:gap-24 h-full mx-auto justify-center items-center">
-                       <div className="h-full aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                       </div>
-                       <VideoPlayerBlock videoUrl="https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4" />
-                   </div>
-                </div>
-              </div>
+              ))}
             </div>
           ) : brand.name === "Visa" ? (
             <div className="flex flex-col w-full relative">
