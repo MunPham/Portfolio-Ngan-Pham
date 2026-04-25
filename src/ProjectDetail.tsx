@@ -212,7 +212,7 @@ const VisaVideoPlayer = () => {
             <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
           </div>
           <div 
-            className="mt-4 px-4 py-2 bg-black/60 backdrop-blur-md rounded-full text-white tracking-[0.2em] uppercase border border-white/10 whitespace-nowrap"
+            className="mt-4 px-4 py-2 bg-black/60 backdrop-blur-md rounded-full text-white group-hover:text-[#e4ff40] transition-colors duration-300 tracking-[0.2em] uppercase border border-white/10 whitespace-nowrap"
             style={{ fontFamily: "'RobotoMono', monospace", fontSize: '12px', fontWeight: 300 }}
           >
             Click to play
