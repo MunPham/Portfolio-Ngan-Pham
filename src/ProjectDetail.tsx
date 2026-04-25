@@ -86,10 +86,10 @@ const monthImages = [
 ];
 
 const projects = [
-  { id: 0, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", category: "Art Direction", year: "2024" },
+  { id: 0, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", category: "Creative Direction", year: "2024" },
   { id: 1, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Social Media Design", category: "Visual Strategy", year: "2024" },
   { id: 2, src: monthImages[0], title: "Merchandise", category: "Art Direction", year: "2023" },
-  { id: 3, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Presentation Design", category: "Creative Direction", year: "2024" },
+  { id: 3, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Key Visuals", category: "Art Direction", year: "2024" },
   { id: 4, src: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", title: "Brand Identity", category: "Digital Curation", year: "2023" }
 ];
 
@@ -798,7 +798,7 @@ const ProjectDetail = () => {
             </div>
           </section>
         </div>
-      ) : projectIndex === 3 ? (
+      ) : projectIndex === 0 ? (
         <PresentationSection project={project} />
       ) : projectIndex === 1 ? (
         <section className="relative w-full flex flex-col items-start min-h-[100dvh] pt-32 shrink-0 overflow-hidden snap-start">
