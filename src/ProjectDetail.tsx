@@ -77,6 +77,12 @@ import diathan1 from '../SOURCE/PONNIE/DIA THAN 1.webp';
 import diathan2 from '../SOURCE/PONNIE/DIA THAN 2.webp';
 import diathan3 from '../SOURCE/PONNIE/DIA THAN 3.webp';
 import diathan4 from '../SOURCE/PONNIE/DIA THAN 4.webp';
+import ponnietv1 from '../SOURCE/PONNIE/PONNIE TV 1.webp';
+import ponnietv2 from '../SOURCE/PONNIE/PONNIE TV 2.webp';
+import ponnietv3 from '../SOURCE/PONNIE/PONNIE TV 3.webp';
+import ponnietv4 from '../SOURCE/PONNIE/PONNIE TV 4.webp';
+import ponnietv5 from '../SOURCE/PONNIE/PONNIE TV 5.webp';
+import ponnietv6 from '../SOURCE/PONNIE/PONNIE TV 6.webp';
 
 const monthImages = [
   tháng1,
@@ -429,11 +435,17 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                   <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-8 xl:px-12 h-[45vh] md:h-[55vh] xl:h-[65vh]">
                      <div className="flex w-full gap-8 md:gap-8 lg:gap-12 xl:gap-24 h-full mx-auto justify-center items-center">
                          <div className="flex flex-col gap-4 md:gap-6 h-full shrink-0 justify-center">
-                             <div className="h-[75%] md:h-[80%] aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan1 : ngtt1} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan2 : ngtt2} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan3 : ngtt3} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan4 : ngtt4} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                             <div className={`h-[75%] md:h-[80%] ${idx === 1 ? 'aspect-[6/5] grid-cols-3' : 'aspect-[4/5] grid-cols-2'} grid grid-rows-2 gap-2 md:gap-4 shrink-0`}>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan1 : idx === 1 ? ponnietv1 : ngtt1} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan2 : idx === 1 ? ponnietv2 : ngtt2} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan3 : idx === 1 ? ponnietv3 : ngtt3} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan4 : idx === 1 ? ponnietv4 : ngtt4} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 {idx === 1 && (
+                                   <>
+                                     <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ponnietv5} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                     <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ponnietv6} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                   </>
+                                 )}
                              </div>
                              <div className="text-[10px] md:text-sm text-white/50 font-sans">
                                  <p className="text-white/80 font-medium">I designed still frame visuals.</p>
