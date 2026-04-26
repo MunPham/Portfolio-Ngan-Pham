@@ -73,6 +73,10 @@ import ngtt1 from '../SOURCE/PONNIE/Nhập gia tuỳ tiệc 1.webp';
 import ngtt2 from '../SOURCE/PONNIE/Nhập gia tuỳ tiệc 2.webp';
 import ngtt3 from '../SOURCE/PONNIE/Nhập gia tuỳ tiệc 3.webp';
 import ngtt4 from '../SOURCE/PONNIE/Nhập gia tuỳ tiệc 4.webp';
+import diathan1 from '../SOURCE/PONNIE/DIA THAN 1.webp';
+import diathan2 from '../SOURCE/PONNIE/DIA THAN 2.webp';
+import diathan3 from '../SOURCE/PONNIE/DIA THAN 3.webp';
+import diathan4 from '../SOURCE/PONNIE/DIA THAN 4.webp';
 
 const monthImages = [
   tháng1,
@@ -426,10 +430,10 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                      <div className="flex w-full gap-8 md:gap-8 lg:gap-12 xl:gap-24 h-full mx-auto justify-center items-center">
                          <div className="flex flex-col gap-4 md:gap-6 h-full shrink-0 justify-center">
                              <div className="h-[75%] md:h-[80%] aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt1} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt2} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt3} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt4} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan1 : ngtt1} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan2 : ngtt2} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan3 : ngtt3} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan4 : ngtt4} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                              </div>
                              <div className="text-[10px] md:text-sm text-white/50 font-sans">
                                  <p className="text-white/80 font-medium">I designed still frame visuals.</p>
