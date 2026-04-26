@@ -83,6 +83,12 @@ import ponnietv3 from '../SOURCE/PONNIE/PONNIE TV 3.webp';
 import ponnietv4 from '../SOURCE/PONNIE/PONNIE TV 4.webp';
 import ponnietv5 from '../SOURCE/PONNIE/PONNIE TV 5.webp';
 import ponnietv6 from '../SOURCE/PONNIE/PONNIE TV 6.webp';
+import ntmj1 from '../SOURCE/PONNIE/NHẬP TIỆC MANG J 1.webp';
+import ntmj2 from '../SOURCE/PONNIE/NHẬP TIỆC MANG J 2.webp';
+import ntmj3 from '../SOURCE/PONNIE/NHẬP TIỆC MANG J 3.webp';
+import ntmj4 from '../SOURCE/PONNIE/NHẬP TIỆC MANG J 4.webp';
+import ntmj5 from '../SOURCE/PONNIE/NHẬP TIỆC MANG J 5.webp';
+import ntmj6 from '../SOURCE/PONNIE/NHẬP TIỆC MANG J 6.webp';
 
 const monthImages = [
   tháng1,
@@ -435,15 +441,15 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                   <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-8 xl:px-12 h-[45vh] md:h-[55vh] xl:h-[65vh]">
                      <div className="flex w-full gap-8 md:gap-8 lg:gap-12 xl:gap-24 h-full mx-auto justify-center items-center">
                          <div className="flex flex-col gap-4 md:gap-6 h-full shrink-0 justify-center">
-                             <div className={`h-[75%] md:h-[80%] ${idx === 1 ? 'aspect-[6/5] grid-cols-3' : 'aspect-[4/5] grid-cols-2'} grid grid-rows-2 gap-2 md:gap-4 shrink-0`}>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan1 : idx === 1 ? ponnietv1 : ngtt1} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan2 : idx === 1 ? ponnietv2 : ngtt2} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan3 : idx === 1 ? ponnietv3 : ngtt3} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan4 : idx === 1 ? ponnietv4 : ngtt4} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                 {idx === 1 && (
+                             <div className={`h-[75%] md:h-[80%] ${(idx === 1 || idx === 2) ? 'aspect-[6/5] grid-cols-3' : 'aspect-[4/5] grid-cols-2'} grid grid-rows-2 gap-2 md:gap-4 shrink-0`}>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan1 : idx === 2 ? ntmj1 : idx === 1 ? ponnietv1 : ngtt1} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan2 : idx === 2 ? ntmj2 : idx === 1 ? ponnietv2 : ngtt2} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan3 : idx === 2 ? ntmj3 : idx === 1 ? ponnietv3 : ngtt3} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 3 ? diathan4 : idx === 2 ? ntmj4 : idx === 1 ? ponnietv4 : ngtt4} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 {(idx === 1 || idx === 2) && (
                                    <>
-                                     <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ponnietv5} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                                     <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ponnietv6} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                     <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 2 ? ntmj5 : ponnietv5} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                     <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={idx === 2 ? ntmj6 : ponnietv6} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                                    </>
                                  )}
                              </div>
