@@ -24,7 +24,8 @@
 
 @theme {
   --font-serif: "HalenoirExpanded", "Playfair Display", serif;
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "HalenoirCompactText", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "RobotoMono", ui-monospace, SFMono-Regular, monospace;
 }
 
 @layer utilities {

@@ -69,6 +69,10 @@ import ponnie6 from '../SOURCE/PONNIE/Ponnie 6.webp';
 import ponnie7 from '../SOURCE/PONNIE/Ponnie 7.webp';
 import ponnie8 from '../SOURCE/PONNIE/Ponnie 8.webp';
 import ponnie9 from '../SOURCE/PONNIE/Ponnie 9.webp';
+import ngtt1 from '../SOURCE/PONNIE/Nhập gia tuỳ tiệc 1.webp';
+import ngtt2 from '../SOURCE/PONNIE/Nhập gia tuỳ tiệc 2.webp';
+import ngtt3 from '../SOURCE/PONNIE/Nhập gia tuỳ tiệc 3.webp';
+import ngtt4 from '../SOURCE/PONNIE/Nhập gia tuỳ tiệc 4.webp';
 
 const monthImages = [
   tháng1,
@@ -420,11 +424,17 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                   </div>
                   <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
                      <div className="flex w-full gap-8 md:gap-16 lg:gap-24 h-full mx-auto justify-center items-center">
-                         <div className="h-full aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
-                             <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                             <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                             <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                             <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                         <div className="flex flex-col gap-4 md:gap-6 h-full shrink-0 justify-center">
+                             <div className="h-[75%] md:h-[80%] aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt1} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt2} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt3} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                                 <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt4} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                             </div>
+                             <div className="text-[10px] md:text-sm text-white/50 font-sans">
+                                 <p className="text-white/80 font-medium">I designed still frame visuals.</p>
+                                 <p>Video was produced by the Circus team.</p>
+                             </div>
                          </div>
                          <VideoPlayerBlock videoUrl={
                            idx === 0 ? "https://res.cloudinary.com/dz154pwxa/video/upload/v1777142334/PONNIE_VIDEO_1_tycrey.mp4" :
@@ -469,11 +479,17 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 </div>
                 <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
                    <div className="flex w-full gap-8 md:gap-16 lg:gap-24 h-full mx-auto justify-center items-center">
-                       <div className="h-full aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
-                           <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                       <div className="flex flex-col gap-4 md:gap-6 h-full shrink-0 justify-center">
+                           <div className="h-[75%] md:h-[80%] aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
+                               <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                               <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                               <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                               <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
+                           </div>
+                           <div className="text-[10px] md:text-sm text-white/50 font-sans">
+                               <p className="text-white/80 font-medium">I designed still frame visuals.</p>
+                               <p>Video was produced by the Circus team.</p>
+                           </div>
                        </div>
                        <VideoPlayerBlock videoUrl="https://res.cloudinary.com/dz154pwxa/video/upload/v1777141112/20260422_Visa_AO_Video_post_last_minute_mbja0n.mp4" />
                    </div>
