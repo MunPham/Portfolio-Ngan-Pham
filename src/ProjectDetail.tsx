@@ -422,8 +422,8 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                       </div>
                     )}
                   </div>
-                  <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
-                     <div className="flex w-full gap-8 md:gap-16 lg:gap-24 h-full mx-auto justify-center items-center">
+                  <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-8 xl:px-12 h-[45vh] md:h-[55vh] xl:h-[65vh]">
+                     <div className="flex w-full gap-8 md:gap-8 lg:gap-12 xl:gap-24 h-full mx-auto justify-center items-center">
                          <div className="flex flex-col gap-4 md:gap-6 h-full shrink-0 justify-center">
                              <div className="h-[75%] md:h-[80%] aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
                                  <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src={ngtt1} className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
@@ -477,8 +477,8 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                 <div className="px-6 md:px-12 pb-6 shrink-0">
                   <h3 className="text-[16px] text-white uppercase" style={{ fontFamily: "'HalenoirExpanded', 'Helvetica', sans-serif" }}>2 / Playlist</h3>
                 </div>
-                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-12 h-[45vh] md:h-[65vh]">
-                   <div className="flex w-full gap-8 md:gap-16 lg:gap-24 h-full mx-auto justify-center items-center">
+                <div className="w-full shrink-0 flex justify-center items-center px-4 md:px-8 xl:px-12 h-[45vh] md:h-[55vh] xl:h-[65vh]">
+                   <div className="flex w-full gap-8 md:gap-8 lg:gap-12 xl:gap-24 h-full mx-auto justify-center items-center">
                        <div className="flex flex-col gap-4 md:gap-6 h-full shrink-0 justify-center">
                            <div className="h-[75%] md:h-[80%] aspect-[4/5] grid grid-cols-2 grid-rows-2 gap-2 md:gap-4 shrink-0">
                                <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
