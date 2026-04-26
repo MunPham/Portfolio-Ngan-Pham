@@ -487,7 +487,7 @@ const ExpandedModal = ({ brandIndex, onClose }: { brandIndex: number, onClose: (
                                <div className="w-full h-full bg-white/5 overflow-hidden group border border-white/10 relative"><img src="https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png" className="w-full h-full object-cover transform transition-transform duration-[1.5s] ease-out group-hover:scale-105" alt="" /></div>
                            </div>
                            <div className="text-[10px] md:text-sm text-white/50 font-sans">
-                               <p className="text-white/80 font-medium">I designed still frame visuals.</p>
+                               <p className="text-white/80 font-medium">Designed still frames, animation briefs, and Midjourney Vee 3D motion footage.</p>
                                <p>Video was produced by the Circus team.</p>
                            </div>
                        </div>
