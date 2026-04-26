@@ -114,7 +114,7 @@ const projects = [
 ];
 
 const socialBrands = [
-  { name: "Pönnie", year: "2025-2026", logoUrl: "", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
+  { name: "Pönnie", year: "2025-2026", logoUrl: "", artUrl: ngtt2, isAI: true },
   { name: "Samsung", year: "2023", logoUrl: "https://logo.clearbit.com/samsung.com", artUrl: ssEuro2, isAI: false },
   { name: "Visa", year: "2023-2026", logoUrl: "https://logo.clearbit.com/visa.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: false },
   { name: "Tiger", year: "2026", logoUrl: "https://logo.clearbit.com/tigerbeer.com", artUrl: "https://i.postimg.cc/d1f7QFsJ/Screenshot-2026-04-18-at-18-02-38.png", isAI: true },
